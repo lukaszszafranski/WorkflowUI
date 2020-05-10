@@ -1,0 +1,201 @@
+<body class="nav-fixed">
+    <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
+        <a class="navbar-brand d-none d-sm-block" href="index.html">WorkFlow</a>
+        <ul class="navbar-nav align-items-center ml-auto">
+            <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i-feather name="bell"></i-feather></a>
+                <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
+                    <h6 class="dropdown-header dropdown-notifications-header"><i class="mr-2 far fa-bell"></i>Alerts Center</h6>
+                    <a class="dropdown-item dropdown-notifications-item" href="#!"
+                        ><div class="dropdown-notifications-item-icon bg-warning"><i class="fas fa-exclamation-circle"></i></div>
+                        <div class="dropdown-notifications-item-content">
+                            <div class="dropdown-notifications-item-content-details">December 29, 2019</div>
+                            <div class="dropdown-notifications-item-content-text">This is an alert message. It's nothing serious, but it requires your attention.</div>
+                        </div></a
+                    ><a class="dropdown-item dropdown-notifications-item" href="#!"
+                        ><div class="dropdown-notifications-item-icon bg-info"><i class="fas fa-chart-bar"></i></div>
+                        <div class="dropdown-notifications-item-content">
+                            <div class="dropdown-notifications-item-content-details">December 22, 2019</div>
+                            <div class="dropdown-notifications-item-content-text">A new monthly report is ready. Click here to view!</div>
+                        </div></a
+                    ><a class="dropdown-item dropdown-notifications-item" href="#!"
+                        ><div class="dropdown-notifications-item-icon bg-danger"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="dropdown-notifications-item-content">
+                            <div class="dropdown-notifications-item-content-details">December 8, 2019</div>
+                            <div class="dropdown-notifications-item-content-text">Critical system failure, systems shutting down.</div>
+                        </div></a
+                    ><a class="dropdown-item dropdown-notifications-item" href="#!"
+                        ><div class="dropdown-notifications-item-icon bg-success"><i class="fas fa-user-plus"></i></div>
+                        <div class="dropdown-notifications-item-content">
+                            <div class="dropdown-notifications-item-content-details">December 2, 2019</div>
+                            <div class="dropdown-notifications-item-content-text">New user request. Woody has requested access to the organization.</div>
+                        </div></a
+                    ><a class="dropdown-item dropdown-notifications-footer" href="#!">View All Alerts</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i-feather name="mail"></i-feather></a>
+                <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownMessages">
+                    <h6 class="dropdown-header dropdown-notifications-header"><i class="mr-2 far fa-envelope"></i>Message Center</h6>
+                    <a class="dropdown-item dropdown-notifications-item" href="#!"
+                        ><img class="dropdown-notifications-item-img" src="https://source.unsplash.com/vTL_qy03D1I/60x60" />
+                        <div class="dropdown-notifications-item-content">
+                            <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div class="dropdown-notifications-item-content-details">Emily Fowler · 58m</div>
+                        </div></a
+                    ><a class="dropdown-item dropdown-notifications-item" href="#!"
+                        ><img class="dropdown-notifications-item-img" src="https://source.unsplash.com/4ytMf8MgJlY/60x60" />
+                        <div class="dropdown-notifications-item-content">
+                            <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div class="dropdown-notifications-item-content-details">Diane Chambers · 2d</div>
+                        </div></a
+                    ><a class="dropdown-item dropdown-notifications-footer" href="#!">Read All Messages</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-caret mr-3 dropdown-user">
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"/></a>
+                <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
+                    <h6 class="dropdown-header d-flex align-items-center">
+                        <div class="dropdown-user-details">
+                            <div class="dropdown-user-details-name">Valerie Luna</div>
+                            <div class="dropdown-user-details-email">vluna@aol.com</div>
+                        </div>
+                    </h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#!"
+                        ><div class="dropdown-item-icon"><i-feather name="settings"></i-feather></div>
+                        Account
+                    </a>
+                    <a class="dropdown-item" (click)="logout()">
+                        <div class="dropdown-item-icon">
+                            <i-feather name="log-out"></i-feather>
+                        </div>
+                        Logout
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sidenav shadow-right sidenav-light">
+                <div class="sidenav-menu">
+                    <div class="nav accordion" id="accordionSidenav">
+                        <div class="sidenav-menu-heading">Core</div>
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards"
+                            ><div class="nav-link-icon"><i-feather name="activity"></i-feather></div>
+                            Dashboard
+                        </a>
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
+                            ><div class="nav-link-icon"><i-feather name="layout"></i-feather></div>
+                            Projects
+                        </a>
+                        <div class="sidenav-menu-heading">Additional features</div>
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents"
+                            ><div class="nav-link-icon"><i-feather name="search"></i-feather></div>
+                            Search
+                        </a>         
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities"
+                            ><div class="nav-link-icon"><i-feather name="message-square"></i-feather></div>
+                            Chat
+                        </a>
+                        <div class="sidenav-menu-heading">About</div>
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities"
+                            ><div class="nav-link-icon"><i-feather name="archive"></i-feather></div>
+                            Documentation
+                        </a>
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities"
+                            ><div class="nav-link-icon"><i-feather name="phone-call"></i-feather></div>
+                            Contact
+                        </a>
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities"
+                            ><div class="nav-link-icon"><i-feather name="terminal"></i-feather></div>
+                            Support
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="page-header pb-10 page-header-dark bg-primary">
+                    <div class="container-fluid">
+                        <div class="page-header-content">
+                            <h1 class="page-header-title">
+                                <div class="page-header-icon"><i-feather name="activity"></i-feather></div>
+                                <span>Dashboard</span>
+                            </h1>
+                            <div class="page-header-subtitle">Your personal dashboard</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid mt-n10">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills" id="cardPill" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" id="overview-pill" href="#overviewPill" data-toggle="tab" role="tab" aria-controls="overview" aria-selected="true">Projects</a></li>
+                                <li class="nav-item"><a class="nav-link" id="activities-pill" href="#activitiesPill" data-toggle="tab" role="tab" aria-controls="activities" aria-selected="false">Activities</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="cardPillContent">
+                                <div class="tab-pane fade show active" id="overviewPill" role="tabpanel" aria-labelledby="overview-pill">
+                                    <div class="row">
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="activitiesPill" role="tabpanel" aria-labelledby="activities-pill">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="assets/img/drawkit/color/drawkit-charts-and-graphs.svg" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">Interactive Charts</h5>
+                                <p class="card-text">The interactive charts in this theme are powered by Chart.js, a simple, yet flexible, JavaScript charting library for designers &amp; developers.</p>
+                            </div>
+                            <a class="card-footer d-flex align-items-center justify-content-between" href="/charts.html">View charts<i-feather name="arrow-right"></i-feather></a>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="assets/img/drawkit/color/drawkit-developer-woman.svg" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">Documentation</h5>
+                                <p class="card-text">This theme includes code samples for each component, along with detailed documentation and usage instructions!</p>
+                            </div>
+                            <a class="card-footer d-flex align-items-center justify-content-between" href="https://docs.startbootstrap.com/sb-admin-pro/">View documentation<i-feather name="arrow-right"></i-feather></a>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="assets/img/drawkit/color/drawkit-folder-man.svg" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">Pre-Built Pages</h5>
+                                <p class="card-text">A number of pre-built page examples and page layouts are included with this theme to make prototyping your next web application fast and efficient!</p>
+                            </div>
+                            <a class="card-footer d-flex align-items-center justify-content-between" href="#!">Explore pages<i-feather name="arrow-right"></i-feather></a>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="assets/img/drawkit/color/drawkit-content-man.svg" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">Deep Customization</h5>
+                                <p class="card-text">Overried and extend the SCSS variables included with this project to deeply customize the theme to make it pefrectly fit your brand!</p>
+                            </div>
+                            <a class="card-footer d-flex align-items-center justify-content-between" href="#!">Learn more<i-feather name="arrow-right"></i-feather></a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="footer mt-auto footer-light">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 small">Copyright &copy; Work-Flow 2020</div>
+                        <div class="col-md-6 text-md-right small">
+                            <a href="#!">Privacy Policy</a>
+                            &middot;
+                            <a href="#!">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>

@@ -20,13 +20,34 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/img/pattern-shapes.png"
             ],
             "styles": [
-              "src/styles.css"
+              "src/css/styles.css",
+              "src/assets/fonts/metropolis/Metropolis-Black.otf",
+              "src/assets/fonts/metropolis/Metropolis-BlackItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-Bold.otf",
+              "src/assets/fonts/metropolis/Metropolis-BoldItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-ExtraBold.otf",
+              "src/assets/fonts/metropolis/Metropolis-ExtraBoldItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-ExtraLight.otf",
+              "src/assets/fonts/metropolis/Metropolis-ExtraLightItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-Light.otf",
+              "src/assets/fonts/metropolis/Metropolis-LightItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-Medium.otf",
+              "src/assets/fonts/metropolis/Metropolis-MediumItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-Regular.otf",
+              "src/assets/fonts/metropolis/Metropolis-RegularItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-SemiBold.otf",
+              "src/assets/fonts/metropolis/Metropolis-SemiBoldItalic.otf",
+              "src/assets/fonts/metropolis/Metropolis-Thin.otf",
+              "src/assets/fonts/metropolis/Metropolis-ThinItalic.otf",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/scripts.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +140,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "WorkflowUI"
+    }
+  },
+  "defaultProject": "WorkflowUI",
+  "cli": {
+    "analytics": false
+  }
 }
