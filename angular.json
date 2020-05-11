@@ -21,7 +21,12 @@
             "aot": true,
             "assets": [
               "src/assets",
-              "src/assets/img/pattern-shapes.png"
+              "src/assets/img/favicon.png",
+              "src/assets/img/pattern-shapes.png",
+              "src/assets/img/default-avatar.png",
+              "src/assets/img/bg1.jpg",
+              "src/assets/img/bg2.jpg",
+              "src/assets/img/bg3.jpg"
             ],
             "styles": [
               "src/css/styles.css",

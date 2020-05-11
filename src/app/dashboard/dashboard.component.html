@@ -53,7 +53,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown no-caret mr-3 dropdown-user">
-                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"/></a>
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="../../assets/img/default-avatar.png"/></a>
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
                     <h6 class="dropdown-header d-flex align-items-center">
                         <div class="dropdown-user-details">
@@ -63,12 +63,12 @@
                     </h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#!"
-                        ><div class="dropdown-item-icon"><i-feather name="settings"></i-feather></div>
+                        ><div class="dropdown-item-icon"><i class="fas fa-cog"></i></div>
                         Account
                     </a>
                     <a class="dropdown-item" (click)="logout()">
                         <div class="dropdown-item-icon">
-                            <i-feather name="log-out"></i-feather>
+                            <i class="fas fa-sign-out-alt"></i>
                         </div>
                         Logout
                     </a>
@@ -141,6 +141,30 @@
                             <div class="tab-content" id="cardPillContent">
                                 <div class="tab-pane fade show active" id="overviewPill" role="tabpanel" aria-labelledby="overview-pill">
                                     <div class="row">
+                                        <div class="card" style="height: 200px; width: 350px; margin-left: 10px;">
+                                            <img class="card-img" src="../../assets/img/bg1.jpg" alt="...">
+                                            <div class="card-img-overlay">
+                                                <h5 class="card-title" style="color: black;">Software Project</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="height: 200px; width: 350px; margin-left: 10px;">
+                                            <img class="card-img" src="../../assets/img/bg2.jpg" alt="...">
+                                            <div class="card-img-overlay">
+                                                <h5 class="card-title" style="color: black;">Example Project</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="height: 200px; width: 350px; margin-left: 10px;">
+                                            <img class="card-img" src="../../assets/img/bg3.jpg" alt="...">
+                                            <div class="card-img-overlay">
+                                                <h5 class="card-title" style="color: white;">Business Project</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="height: 200px; width: 350px; margin-left: 10px;">
+                                            <img class="card-img" src="../../assets/img/bg4.jpg" alt="...">
+                                            <div class="card-img-overlay">
+                                                <h5 class="card-title" style="color: black;">Trip</h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="activitiesPill" role="tabpanel" aria-labelledby="activities-pill">
