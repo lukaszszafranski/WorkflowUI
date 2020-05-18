@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        // tslint:disable-next-line: prefer-const
         let body = document.getElementsByTagName('body')[0];
         body.classList.add('login-page');
 
@@ -44,6 +45,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+        // tslint:disable-next-line: prefer-const
         let body = document.getElementsByTagName('body')[0];
         body.classList.remove('login-page');
     }

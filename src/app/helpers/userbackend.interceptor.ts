@@ -4,7 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 // array in local storage for registered users
-let users = JSON.parse(localStorage.getItem('users')) || [];
+const users = JSON.parse(localStorage.getItem('users')) || [];
 
 @Injectable()
 export class UserBackendInterceptor implements HttpInterceptor {
@@ -44,7 +44,7 @@ export class UserBackendInterceptor implements HttpInterceptor {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 token: 'fake-jwt-token'
-            })
+            });
         }
 
         function register() {
@@ -72,8 +72,9 @@ export class UserBackendInterceptor implements HttpInterceptor {
 
         // helper functions
 
+        // tslint:disable-next-line: no-shadowed-variable
         function ok(body?) {
-            return of(new HttpResponse({ status: 200, body }))
+            return of(new HttpResponse({ status: 200, body }));
         }
 
         function error(message) {
@@ -90,6 +91,7 @@ export class UserBackendInterceptor implements HttpInterceptor {
 
         function idFromUrl() {
             const urlParts = url.split('/');
+            // tslint:disable-next-line: radix
             return parseInt(urlParts[urlParts.length - 1]);
         }
     }

@@ -15,6 +15,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             if (err.status === 401) {
                 // auto logout if 401 response returned from api
                 this.authenticationService.logout();
+                // tslint:disable-next-line: deprecation
                 location.reload(true);
             }
             if (err.status === 500) {
@@ -23,6 +24,6 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             const error = err.error.message || err.statusText;
             return throwError(error);
-        }))
+        }));
     }
 }

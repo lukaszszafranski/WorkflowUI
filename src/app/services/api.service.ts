@@ -18,15 +18,16 @@ export class ApiService {
     }));
   }
 
-  public PostSymbolToAPI(symbols: string) : Observable<any> {
+  public PostSymbolToAPI(symbols: string): Observable<any> {
 
+    // tslint:disable-next-line: prefer-const
     let headers = new HttpHeaders().set('Accept', 'application/json, text/plain, */*');
 
     const body = {
       symbols
-    }
+    };
 
-    return this.httpClient.post(`${environment.apiUrl}/api/Stocks`, body, { headers: headers }).pipe(map(response => {
+    return this.httpClient.post(`${environment.apiUrl}/api/Stocks`, body, { headers }).pipe(map(response => {
       return response;
     },
     catchError(err => of([]))));

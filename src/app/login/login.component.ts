@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        var body = document.getElementsByTagName('body')[0];
+        // tslint:disable-next-line: prefer-const
+        let body = document.getElementsByTagName('body')[0];
         body.classList.add('login-page');
 
         this.loginForm = this.formBuilder.group({
@@ -41,13 +42,14 @@ export class LoginComponent implements OnInit, OnDestroy {
         });
 
         // get return url from route parameters or default to '/'
+        // tslint:disable-next-line: no-string-literal
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
     }
 
     ngOnDestroy() {
-        var body = document.getElementsByTagName('body')[0];
+        // tslint:disable-next-line: prefer-const
+        let body = document.getElementsByTagName('body')[0];
         body.classList.remove('login-page');
-    
     }
 
     // convenience getter for easy access to form fields
