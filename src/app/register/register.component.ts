@@ -7,6 +7,7 @@ import { AlertService } from '../services/alert.service';
 import { UserService } from '../services/user.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit, OnDestroy {
@@ -21,8 +22,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
         private router: Router,
         private authenticationService: AuthenticationService,
         private userService: UserService,
-        private alertService: AlertService,
-        private spinner: NgxSpinnerService
+        private spinner: NgxSpinnerService,
+        private toastr: ToastrService
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        var body = document.getElementsByTagName('body')[0];
+        let body = document.getElementsByTagName('body')[0];
         body.classList.add('login-page');
 
         this.registerForm = this.formBuilder.group({
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        var body = document.getElementsByTagName('body')[0];
+        let body = document.getElementsByTagName('body')[0];
         body.classList.remove('login-page');
     }
 
@@ -54,28 +55,25 @@ export class RegisterComponent implements OnInit, OnDestroy {
         this.spinner.show();
         this.submitted = true;
 
-        // reset alerts on submit
-        this.alertService.clear();
-
         // stop here if form is invalid
         if (this.registerForm.invalid) {
-            return;
+            this.toastr.warning('Form is invalid!');
+            this.spinner.hide();
         }
-
-        this.loading = true;
-        this.userService.register(this.registerForm.value)
+        else {
+            this.loading = true;
+            this.userService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
+                    this.spinner.hide();
+                    this.toastr.success('Registration successful');
                     this.router.navigate(['/login']);
                 },
                 error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
-                setTimeout(() => {
+                    this.toastr.error(error);
                     this.spinner.hide();
-                }, 5000);
+                });
+        }
     }
 }

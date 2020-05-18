@@ -46,9 +46,9 @@
                                             <br>
                                             <div class="form-group d-flex align-items-center justify-content-between">
                                                 <div class="custom-control custom-control-solid custom-checkbox">
-                                                    <input class="custom-control-input small" id="customCheck1" type="checkbox" /><label class="custom-control-label mr-3" for="customCheck1">I accept the <a href="javascript:void(0);">terms &amp; conditions</a>.</label>
+                                                    <input class="custom-control-input small" id="customCheck1" type="checkbox" onchange="document.getElementById('createButton').disabled = !this.checked;"/><label class="custom-control-label mr-3" for="customCheck1">I accept the <a href="javascript:void(0);">terms &amp; conditions</a>.</label>
                                                 </div>
-                                                <button class="btn btn-primary">Create Account</button>
+                                                <button class="btn btn-primary" id="createButton" disabled>Create Account</button>
                                             </div>
                                         </form>
                                     </div>

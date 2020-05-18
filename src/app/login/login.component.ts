@@ -7,6 +7,7 @@ import { AlertService } from '../services/alert.service';
 import { AuthenticationService } from '../services/authentication.service';
 
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit, OnDestroy {
@@ -21,8 +22,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService,
-        private spinner: NgxSpinnerService
+        private spinner: NgxSpinnerService,
+        private toastr: ToastrService
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
@@ -53,24 +54,26 @@ export class LoginComponent implements OnInit, OnDestroy {
     get f() { return this.loginForm.controls; }
 
     onSubmit() {
+        this.spinner.show();
         this.submitted = true;
-
-        // reset alerts on submit
-        this.alertService.clear();
 
         // stop here if form is invalid
         if (this.loginForm.invalid) {
-            return;
+            this.toastr.warning('Form is invalid!');
         }
-
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
+        else {
+            this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
+                    this.toastr.success('Login successful');
+                    this.spinner.hide();
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.toastr.error(error);
+                    this.spinner.hide();
                 });
+        }
     }
 }
