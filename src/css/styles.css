@@ -19253,6 +19253,14 @@ body {
   background-color: #00ac69;
 }
 
+#bottom-right-corner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
 .btn {
   display: -webkit-inline-box;
   display: inline-flex;
@@ -19275,6 +19283,12 @@ body {
 .btn-icon.btn-xl {
   height: calc( (1.25rem * 1.5) + (1.25rem * 2) + (2px) ) !important;
   width: calc( (1.25rem * 1.5) + (1.25rem * 2) + (2px) ) !important;
+  border-radius: 100%;
+}
+
+.btn-chat {
+  height: 60px;
+  width: 60px;
   border-radius: 100%;
 }
 .btn-icon.btn-lg, .btn-group-lg > .btn-icon.btn {

@@ -30,6 +30,7 @@
     "jquery": "^3.5.1",
     "ng2-charts": "^2.3.0",
     "ngx-spinner": "^9.0.2",
+    "ngx-tawk": "^1.0.1",
     "ngx-toastr": "^12.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
