@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 import { Message } from '../models/message';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-chat',
@@ -19,7 +20,7 @@ export class ChatComponent implements OnInit{
   title = 'ClientApp';
   // tslint:disable-next-line: no-inferrable-types
   // tslint:disable-next-line: member-ordering
-  txtMessage: string = '';
+  txtMessage = '';
   // tslint:disable-next-line: member-ordering
   uniqueID: string = new Date().getTime().toString();
   // tslint:disable-next-line: member-ordering
@@ -29,7 +30,8 @@ export class ChatComponent implements OnInit{
   constructor(
     private chatService: ChatService,
     // tslint:disable-next-line: variable-name
-    private _ngZone: NgZone
+    private _ngZone: NgZone,
+    private toastr: ToastrService
   ) {
     this.subscribeToEvents();
   }
@@ -43,6 +45,9 @@ export class ChatComponent implements OnInit{
       this.messages.push(this.message);
       this.chatService.sendMessage(this.message);
       this.txtMessage = '';
+    }
+    else if (this.txtMessage === '') {
+      this.toastr.warning('Type something! :)');
     }
   }
   private subscribeToEvents(): void {
