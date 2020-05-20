@@ -12,11 +12,9 @@ import { OrganizationJoinComponent } from '../../organization-join/organization-
 import { OrganizationAddMembersComponent } from '../../organization-add-members/organization-add-members.component';
 import { ProjectsListComponent } from '../../projects-list/projects-list.component';
 import { ChatComponent } from '../../chat/chat.component';
-import { DocumentationComponent } from '../../documentation/documentation.component';
 import { ContactComponent } from '../../contact/contact.component';
 import { SupportComponent } from '../../support/support.component';
 import { ProjectComponent } from '../../project/project.component';
-import { SearchComponent } from '../../search/search.component';
 import { IconsModule } from 'src/app/icons/icons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -41,9 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProjectsListComponent,
     ChatComponent,
     ContactComponent,
-    DocumentationComponent,
     SupportComponent,
-    SearchComponent
   ]
 })
 

@@ -22,7 +22,6 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
-import { AdminLayoutModule } from './layout/admin-layout/admin-layout.module';
 
 @NgModule({
   declarations: [

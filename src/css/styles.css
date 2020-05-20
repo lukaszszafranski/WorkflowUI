@@ -19291,6 +19291,12 @@ body {
   width: 60px;
   border-radius: 100%;
 }
+
+.btn-message {
+  height: 42px;
+  width: 42px;
+}
+
 .btn-icon.btn-lg, .btn-group-lg > .btn-icon.btn {
   height: calc( (1.25rem * 1.5) + (0.5rem * 2) + (2px) ) !important;
   width: calc( (1.25rem * 1.5) + (0.5rem * 2) + (2px) ) !important;
