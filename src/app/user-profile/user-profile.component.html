@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Password</label>
-                                        <input class="form-control" [(ngModel)]="passwordValue" type="password" [ngModelOptions]="{standalone: true}" required>
+                                        <input class="form-control" [(ngModel)]="passwordValue" type="password" minlength="6" [ngModelOptions]="{standalone: true}" required>
                                     </div>
                                     <br>
                                     <button class="btn btn-outline-primary"><i class="far fa-save"></i>&nbsp;&nbsp; Save Changes</button>

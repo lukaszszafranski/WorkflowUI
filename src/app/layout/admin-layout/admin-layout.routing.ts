@@ -23,5 +23,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'chat', component: ChatComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'support', component: SupportComponent },
-    { path: 'project/:projectID', component: ProjectComponent }
+    { path: 'project/:projectID', component: ProjectComponent },
+    { path: '', redirectTo: '/dashboard' }
 ];

@@ -51,11 +51,15 @@ export class UserProfileComponent implements OnInit {
       firstName: [this.firstName, Validators.required],
       lastName: [this.lastName, Validators.required],
       username: [this.username, Validators.required],
-      password: [this.passwordValue, Validators.required]
+      password: [this.passwordValue, Validators.required, Validators.minLength(6)]
     });
 
     if (this.updateForm.invalid) {
       this.toastr.error('Form is invalid!');
+      this.spinner.hide();
+    }
+    else if (this.updateForm.controls['username'].value === ' '){
+      this.toastr.error('Nice try ;)');
       this.spinner.hide();
     }
     else {
