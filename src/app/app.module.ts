@@ -22,6 +22,7 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
     NgxSpinnerModule,
     A11yModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    DragDropModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

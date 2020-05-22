@@ -17,6 +17,7 @@ import { SupportComponent } from '../../support/support.component';
 import { ProjectComponent } from '../../project/project.component';
 import { IconsModule } from 'src/app/icons/icons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule.forChild(AdminLayoutRoutes),
     ToastrModule.forRoot(),
     NgxSpinnerModule,
+    DragDropModule,
   ],
   declarations: [
     DashboardComponent,

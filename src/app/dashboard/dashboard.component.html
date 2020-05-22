@@ -9,6 +9,11 @@
                         </div>
                     </div>
                 </div>
+                <div style="position: relative;">
+                    <ngx-spinner bdOpacity=0.5 bdColor="rgba(51,51,51,0.85)" size="medium" color="#fff" type="line-scale" [fullScreen]="true">
+                        <p style="color: white"> Openning connection to our database... </p>
+                    </ngx-spinner>
+                </div>
                 <div class="container-fluid mt-n10">
                     <div class="card mb-4">
                         <div class="card-header">
@@ -27,10 +32,19 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalCenterTitle">Add your project</h5>
-                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                     </div>
-                                                    <div class="modal-body">...</div>
-                                                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div>
+                                                    <div class="modal-body">
+                                                        <form [formGroup]="projectForm" (ngSubmit)="createProject()">
+                                                            <div class="form-group">
+                                                                <label for="exampleFormControlInput1">Project name</label>
+                                                                <input class="form-control" [(ngModel)]='title' type="text" [ngModelOptions]="{standalone: true}" required>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button class="btn btn-secondary" type="button" data-dismiss="modal" (click)="redirect()">Close</button>
+                                                                <button class="btn btn-primary" type="submit">Save changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,3 +90,4 @@
                         </div>
                     </div>
                 </div>
+

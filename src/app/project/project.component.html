@@ -1,1 +1,385 @@
-<p>project works!</p>
+<div class="page-header pb-10 page-header-dark bg-primary">
+  <div class="container-fluid">
+    <div class="page-header-content">
+      <h1 class="page-header-title">
+        <div class="page-header-icon"><i class="fas fa-tasks"></i></div>
+        <span>{{ project.title }}</span
+        >&nbsp;
+        <button
+          class="btn btn-yellow btn-icon"
+          type="button"
+          data-toggle="modal"
+          data-target="#editProjectModal"
+        >
+          <i class="fas fa-pen"></i>
+        </button>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="editProjectModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">
+                  Edit your project title
+                </h5>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="projectForm" (ngSubmit)="updateProject()">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Title</label>
+                    <input
+                      class="form-control"
+                      [(ngModel)]="projectTitle"
+                      type="text"
+                      [ngModelOptions]="{ standalone: true }"
+                      required
+                    />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button class="btn btn-primary" type="submit">
+                      Save changes
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        &nbsp;
+        <button
+          class="btn btn-red btn-icon"
+          type="button"
+          (click)="removeProject()"
+        >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </h1>
+      <div class="page-header-subtitle">Your project.</div>
+    </div>
+  </div>
+</div>
+<div style="position: relative;">
+  <ngx-spinner
+    bdOpacity="0.5"
+    bdColor="rgba(51,51,51,0.85)"
+    size="medium"
+    color="#fff"
+    type="line-scale"
+    [fullScreen]="true"
+  >
+    <p style="color: white;">Openning connection to our database...</p>
+  </ngx-spinner>
+</div>
+<div class="container-fluid mt-n10">
+  <div class="row">
+    <div
+      cdkDropList
+      [cdkDropListData]="project.columns"
+      (cdkDropListDropped)="dropGroup($event)"
+    >
+      <div
+        class="example-container"
+        cdkDropListGroup
+        *ngFor="let item of project.columns; let i = index"
+        cdkDrag
+        [cdkDragData]="item"
+      >
+        <div class="card-deck">
+          <div class="card mb-4">
+            <div class="card-header" style="justify-content: center;">
+              {{ item.columnName }}
+              &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+              <button
+                class="btn btn-yellow btn-icon rounded-0"
+                type="button"
+                data-toggle="modal"
+                data-target="#editColumnModal"
+              >
+                <i class="fas fa-pen"></i>
+              </button>
+              <div
+                class="modal fade"
+                id="editColumnModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">
+                        Edit your column name
+                      </h5>
+                    </div>
+                    <div class="modal-body">
+                      <form
+                        [formGroup]="columnNameForm"
+                        (ngSubmit)="updateColumn(item.columnID)"
+                      >
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1"
+                            >Column name</label
+                          >
+                          <input
+                            class="form-control"
+                            [(ngModel)]="columnNameChange"
+                            maxlength="10"
+                            type="text"
+                            [ngModelOptions]="{ standalone: true }"
+                            required
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            class="btn btn-secondary"
+                            type="button"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button class="btn btn-primary" type="submit">
+                            Save changes
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                *ngIf="columnCounter > 1"
+                class="btn btn-red btn-icon rounded-0"
+                style="margin-top: 5px; margin-bottom: 5px; margin-left: 5px;"
+                type="button"
+                (click)="removeColumn(item.columnID)"
+              >
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+            <div
+              cdkDropList
+              class="example-list"
+              id="{{ item.columnID }}"
+              [cdkDropListData]="item.tasks"
+              (cdkDropListDropped)="dropItem($event)"
+              [cdkDropListConnectedTo]="getConnectedList()"
+            >
+              <div class="card-body">
+                <div
+                  class="example-box"
+                  cdkDrag
+                  [cdkDragData]="task"
+                  *ngFor="let task of item.tasks"
+                  style="justify-content: center;"
+                >
+                  {{ task.name }}
+                  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                  <button
+                    class="btn btn-yellow btn-icon rounded-0"
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#editTaskModal"
+                  >
+                    <i class="fas fa-pen"></i>
+                  </button>
+                  <div
+                    class="modal fade"
+                    id="editTaskModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="modal-dialog modal-dialog-centered"
+                      role="document"
+                    >
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalCenterTitle">
+                            Edit your task description
+                          </h5>
+                        </div>
+                        <div class="modal-body">
+                          <form
+                            [formGroup]="taskNameForm"
+                            (ngSubmit)="updateTask(item.columnID, task.taskID)"
+                          >
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1"
+                                >Task description</label
+                              >
+                              <input
+                                class="form-control"
+                                [(ngModel)]="taskNameChange"
+                                maxlength="25"
+                                type="text"
+                                [ngModelOptions]="{ standalone: true }"
+                                required
+                              />
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                class="btn btn-secondary"
+                                type="button"
+                                data-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                              <button class="btn btn-primary" type="submit">
+                                Save changes
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-red btn-icon rounded-0"
+                    style="
+                      margin-top: 5px;
+                      margin-bottom: 5px;
+                      margin-left: 5px;
+                    "
+                    type="button"
+                    (click)="removeTask(item.columnID, task.taskID)"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <button
+                class="btn btn-secondary btn-icon-xl rounded-0"
+                style="width: 275px;"
+                type="button"
+                data-toggle="modal"
+                data-target="#taskModal"
+                (click)="passID(item.columnID)"
+              >
+                <i class="fas fa-plus-circle"></i>&nbsp;&nbsp; Add task
+              </button>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="taskModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">
+                        Add new task
+                      </h5>
+                    </div>
+                    <div class="modal-body">
+                      <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1"
+                            >Task description</label
+                          >
+                          <input
+                            class="form-control"
+                            [(ngModel)]="taskName"
+                            maxlength="25"
+                            type="text"
+                            [ngModelOptions]="{ standalone: true }"
+                            required
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            class="btn btn-secondary"
+                            type="button"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button class="btn btn-primary" type="submit">
+                            Save changes
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      *ngIf="columnCounter < 6"
+      class="btn btn-green btn-icon"
+      type="button"
+      data-toggle="modal"
+      data-target="#columnModal"
+    >
+      <i class="fas fa-plus-circle"></i>
+    </button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="columnModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              Add new column
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="columnForm" (ngSubmit)="addColumn()">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Column name</label>
+                <input
+                  class="form-control"
+                  [(ngModel)]="columnName"
+                  maxlength="10"
+                  type="text"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button class="btn btn-primary" type="submit">
+                  Save changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

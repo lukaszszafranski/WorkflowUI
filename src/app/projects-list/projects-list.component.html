@@ -1,1 +1,29 @@
-<p>projects-list works!</p>
+<div class="page-header pb-10 page-header-dark bg-primary">
+    <div class="container-fluid">
+        <div class="page-header-content">
+            <h1 class="page-header-title">
+                <div class="page-header-icon"><i class="fas fa-tasks"></i></div>
+                <span>Projects</span>
+            </h1>
+            <div class="page-header-subtitle">All available projects.</div>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdOpacity=0.5 bdColor="rgba(51,51,51,0.85)" size="medium" color="#fff" type="line-scale" [fullScreen]="true">
+    <p style="color: white"> Updating user... </p>
+</ngx-spinner>
+<div class="container-fluid mt-n10">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let project of projectsArray">
+            <div class="card-deck">
+                <div class="card mb-4" >
+                    <div class="card-body">
+                            <h5 class="card-title text-primary"><a [routerLink]="['/project', project.projectID]">{{ project.title }}</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+
+
