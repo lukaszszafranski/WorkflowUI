@@ -51,7 +51,7 @@ export class UserProfileComponent implements OnInit {
       firstName: [this.firstName, Validators.required],
       lastName: [this.lastName, Validators.required],
       username: [this.username, Validators.required],
-      password: [this.passwordValue, Validators.required, Validators.minLength(6)]
+      password: [this.passwordValue, Validators.required],
     });
 
     if (this.updateForm.invalid) {
@@ -60,6 +60,10 @@ export class UserProfileComponent implements OnInit {
     }
     else if (this.updateForm.controls['username'].value === ' '){
       this.toastr.error('Nice try ;)');
+      this.spinner.hide();
+    }
+    else if (this.passwordValue.length < 6) {
+      this.toastr.error('Password must have more than 6 characters');
       this.spinner.hide();
     }
     else {
