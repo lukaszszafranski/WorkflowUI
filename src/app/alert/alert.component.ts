@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { AlertService } from '../services/alert.service';
 
+// tslint:disable-next-line: component-selector
 @Component({ selector: 'alert', templateUrl: 'alert.component.html' })
 export class AlertComponent implements OnInit, OnDestroy {
     private subscription: Subscription;

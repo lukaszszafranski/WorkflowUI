@@ -406,7 +406,7 @@ import { SidebarComponent } from &#x27;./layout/sidebar/sidebar.component&#x27;;
 import { NavbarComponent } from &#x27;./layout/navbar/navbar.component&#x27;;
 import { FooterComponent } from &#x27;./layout/footer/footer.component&#x27;;
 import { AdminLayoutComponent } from &#x27;./layout/admin-layout/admin-layout.component&#x27;;
-import { AdminLayoutModule } from &#x27;./layout/admin-layout/admin-layout.module&#x27;;
+import { DragDropModule } from &#x27;@angular/cdk/drag-drop&#x27;;
 
 @NgModule({
   declarations: [
@@ -433,7 +433,8 @@ import { AdminLayoutModule } from &#x27;./layout/admin-layout/admin-layout.modul
     NgxSpinnerModule,
     A11yModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    DragDropModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
