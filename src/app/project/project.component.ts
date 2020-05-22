@@ -90,6 +90,10 @@ export class ProjectComponent implements OnInit {
       this.toastr.error('Form is invalid!');
       this.spinner.hide();
     }
+    else if (this.columnForm.controls['columnName'].value === ' ') {
+      this.toastr.error('Nice try :)');
+      this.spinner.hide();
+    }
     else {
       this.apiService.CreateColumn(this.columnForm.value, projectID).subscribe(response => {
         this.toastr.success('Column ' + this.columnName + ' created!');
@@ -128,6 +132,10 @@ export class ProjectComponent implements OnInit {
       this.toastr.error('Form is invalid!');
       this.spinner.hide();
     }
+    else if (this.projectForm.controls['title'].value === ' ') {
+      this.toastr.error('Nice try :)');
+      this.spinner.hide();
+    }
     else {
       this.apiService.UpdateProject(projectID, this.projectForm.value).subscribe(response => {
         // tslint:disable-next-line: no-string-literal
@@ -155,6 +163,10 @@ export class ProjectComponent implements OnInit {
 
     if (this.taskForm.invalid) {
       this.toastr.error('Form is invalid!');
+      this.spinner.hide();
+    }
+    else if (this.taskForm.controls['name'].value === ' ') {
+      this.toastr.error('Nice try :)');
       this.spinner.hide();
     }
     else {
@@ -199,6 +211,10 @@ export class ProjectComponent implements OnInit {
       this.toastr.error('Form is invalid!');
       this.spinner.hide();
     }
+    else if (this.columnNameForm.controls['columnName'].value === ' ') {
+      this.toastr.error('Nice try :)');
+      this.spinner.hide();
+    }
     else {
       this.apiService.UpdateColumn(projectID, columnID, this.columnNameForm.value).subscribe(response => {
         // tslint:disable-next-line: no-string-literal
@@ -221,6 +237,10 @@ export class ProjectComponent implements OnInit {
 
     if (this.taskNameForm.invalid) {
       this.toastr.error('Form is invalid!');
+      this.spinner.hide();
+    }
+    else if (this.taskNameForm.controls['name'].value === ' ') {
+      this.toastr.error('Nice try :)');
       this.spinner.hide();
     }
     else {
