@@ -36,10 +36,8 @@ export class ProjectComponent implements OnInit {
               private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.spinner.show();
     this.route.paramMap.subscribe(() => {
       this.getValues();
-      this.spinner.hide();
     });
 
     this.taskForm = this.formBuilder.group({
