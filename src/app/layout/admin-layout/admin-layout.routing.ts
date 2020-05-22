@@ -24,5 +24,4 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'support', component: SupportComponent },
     { path: 'project/:projectID', component: ProjectComponent },
-    { path: '', redirectTo: '/dashboard' }
 ];
