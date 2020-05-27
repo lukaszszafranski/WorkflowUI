@@ -27,7 +27,7 @@ This project is frontend part of a bigger project: Kanban board with real-time c
 * Azure App Service
 * Compodoc
 
-<!-- GETTING STARTED -->
+<!-- GETTING STARTED  -->
 ## Getting Started
 
 To get a local copy up and running follow these simple steps:
