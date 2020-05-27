@@ -211,8 +211,6 @@ export class ProjectComponent implements OnInit {
       columnName: [this.columnNameChange, Validators.required],
     });
 
-    console.log(this.columnNameForm.value);
-
     if (this.columnNameForm.invalid) {
       this.toastr.error('Form is invalid!');
       this.spinner.hide();

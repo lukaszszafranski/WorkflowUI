@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
@@ -44,8 +44,6 @@ export class DashboardComponent implements OnInit {
       title: [this.title, Validators.required],
     });
 
-    console.log(this.projectForm.value);
-
     if (this.projectForm.invalid) {
       this.toastr.error('Form is invalid!');
       this.spinner.hide();
@@ -57,6 +55,8 @@ export class DashboardComponent implements OnInit {
                 data => {
                   this.toastr.success('You created ' + this.title + ' Project!');
                   this.spinner.hide();
+                  let closeButton = document.getElementById('closeButton');
+                  closeButton.click();
                   this.redirect();
                 },
                 error => {
