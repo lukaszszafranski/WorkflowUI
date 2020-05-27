@@ -211,6 +211,8 @@ export class ProjectComponent implements OnInit {
       columnName: [this.columnNameChange, Validators.required],
     });
 
+    console.log(this.columnNameForm.value);
+
     if (this.columnNameForm.invalid) {
       this.toastr.error('Form is invalid!');
       this.spinner.hide();
@@ -222,11 +224,12 @@ export class ProjectComponent implements OnInit {
     else {
       this.apiService.UpdateColumn(projectID, columnID, this.columnNameForm.value).subscribe(response => {
         // tslint:disable-next-line: no-string-literal
-        this.toastr.success('Your new column name: ' + this.projectForm.controls['columnName'].value);
+        this.toastr.success('Your new column name: ' + this.columnNameForm.controls['columnName'].value);
         setTimeout(this.ReloadPage, 1000);
         this.spinner.hide();
       }, error => {
         this.toastr.warning(error);
+        this.spinner.hide();
       });
     }
   }
