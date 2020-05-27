@@ -57,6 +57,7 @@ export class DashboardComponent implements OnInit {
                 data => {
                   this.toastr.success('You created ' + this.title + ' Project!');
                   this.spinner.hide();
+                  redirect();
                 },
                 error => {
                   this.toastr.warning(error);
