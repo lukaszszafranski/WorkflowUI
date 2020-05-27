@@ -62,18 +62,22 @@ export class ProjectComponent implements OnInit {
   }
 
   getValues(){
+    this.spinner.show();
     const projectID: number = +this.route.snapshot.paramMap.get('projectID');
     this.apiService.GetProjectByID(projectID).subscribe(
       response => {
         this.project = response;
         this.columnCounter = this.project.columns.length;
         this.projectTitle = this.project.title;
+        this.spinner.hide();
       },
       error => {
         this.toastr.warning(error);
         if (error === 'Unknown Error'){
           this.router.navigate(['/404']);
+          this.spinner.hide();
         }
+        this.spinner.hide();
       }
     );
   }
