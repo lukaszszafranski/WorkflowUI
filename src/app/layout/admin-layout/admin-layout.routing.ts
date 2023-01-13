@@ -11,6 +11,7 @@ import { ChatComponent } from 'src/app/chat/chat.component';
 import { ContactComponent } from 'src/app/contact/contact.component';
 import { SupportComponent } from 'src/app/support/support.component';
 import { ProjectComponent } from 'src/app/project/project.component';
+import { TimesheetsListComponent } from 'src/app/timesheets-list/timesheets-list.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -24,4 +25,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'support', component: SupportComponent },
     { path: 'project/:projectID', component: ProjectComponent },
+    { path: 'timesheets-list', component: TimesheetsListComponent }
 ];
