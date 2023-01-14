@@ -25,7 +25,6 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TimesheetsListComponent } from './timesheets-list/timesheets-list.component';
 import { TimesheetDetailsComponent } from './timesheet-details/timesheet-details.component';
-import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -46,7 +45,6 @@ import { AgGridModule } from 'ag-grid-angular';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // AgGridModule,
     IconsModule,
     FormsModule,
     ReactiveFormsModule,
