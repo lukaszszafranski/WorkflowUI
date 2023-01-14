@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import '../../node_modules/ag-grid-community/styles/ag-grid.css';
+@import '../../node_modules/ag-grid-community/styles/ag-theme-alpine.css';
 /*!
 * Start Bootstrap - SB Admin Pro v1.1.1 (https://shop.startbootstrap.com/product/sb-admin-pro)
 * Copyright 2013-2020 Start Bootstrap

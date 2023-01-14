@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { ColDef } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-timesheets-list',
@@ -13,11 +13,11 @@ export class TimesheetsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-//   columnDefs: ColDef[] = [
-//     { field: 'make' },
-//     { field: 'model' },
-//     { field: 'price' }
-// ];
+  columnDefs: ColDef[] = [
+    { field: 'make' },
+    { field: 'model' },
+    { field: 'price' }
+];
 
 rowData = [
     { make: 'Toyota', model: 'Celica', price: 35000 },
