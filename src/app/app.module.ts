@@ -46,7 +46,7 @@ import { AgGridModule } from 'ag-grid-angular';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AgGridModule,
+    // AgGridModule,
     IconsModule,
     FormsModule,
     ReactiveFormsModule,
