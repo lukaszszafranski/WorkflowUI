@@ -1,1 +1,59 @@
-<p>timesheet-details works!</p>
+<div class="page-header pb-10 page-header-dark bg-primary">
+    <div class="container-fluid">
+        <div class="page-header-content">
+            <h1 class="page-header-title">
+                <div class="page-header-icon"><i class="fas fa-calendar"></i></div>
+                <span>Styczeń 2023</span>
+            </h1>
+            <!-- <div class="page-header-subtitle">Your Timesheets!</div> -->
+            <!-- <div class="btn btn-primary" (click)="onSubmit()">TEST</div> -->
+            <div class="ml-3 mt-3 page-header-subtitle" style="color: white;">
+            TOTAL HOURS REPORTED: 0H Reported of {{totalHours}}H
+            </div>  
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt-n10">
+    <ag-grid-angular
+        style="width: 100%;"
+        class="ag-theme-alpine"
+        [defaultColDef]="defaultColDef"
+        [autoGroupColumnDef]="autoGroupColumnDef"
+        [domLayout]="'autoHeight'"
+        (gridReady)="onGridReady($event)"
+        [suppressAggFuncInHeader]="true"
+        >
+    </ag-grid-angular>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">+ Add New Project</div>
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Add new project task</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="projectForm" (ngSubmit)="addNewProject()">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Project name</label>
+                                <select class="form-control" type="sele" formControlName="projectName">
+                                    <option *ngFor="let project of projectList" [ngValue]="project">{{project.title}}</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" id="closeButton" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary" type="submit">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="text-align: right; justify-content: right;">
+            <div class="btn btn-success" style="text-align: right; justify-content: right;">Save Draft</div>
+            <div class="btn btn-success ml-3 mr-4"  (click)="onSubmit()" style="text-align: right; justify-content: right;">Submit</div>
+        </div>
+    </div>
+</div>

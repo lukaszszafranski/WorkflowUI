@@ -6,6 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Project } from '../models/Project';
 import { column } from '../models/Column';
 import { task } from '../models/Task';
+import { Timesheet } from '../models/timesheet';
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,9 @@ export class ApiService {
 
   public RemoveTask(projectId: number, columnID: number, taskID: number){
     return this.httpClient.delete(`${environment.apiUrl}/api/Projects/${projectId}/column/${columnID}/task/${taskID}`);
+  }
+
+  public CreateTimesheet(timesheet: Timesheet) {
+    return this.httpClient.post(`${environment.apiUrl}/api/Timesheets`, timesheet);
   }
 }

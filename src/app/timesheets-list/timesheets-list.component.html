@@ -4,11 +4,46 @@
             <h1 class="page-header-title">
                 <div class="page-header-icon"><i class="fas fa-calendar"></i></div>
                 <span>Timesheets</span>
-                <div class="btn btn-success ml-5" style="text-align: right; justify-content: right;">
+                <div class="btn btn-success ml-5" style="text-align: right; justify-content: right;" (click)="addTimesheet()">
                     + Add new Timesheet
                 </div>
             </h1>
             <div class="page-header-subtitle">Your Timesheets!</div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add new Timesheet</h5>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Month</label>
+                        <select class="form-control" type="sele" formControlName="projectName">
+                            <option>Styczeń</option>
+                            <option>Luty</option>
+                            <option>Marzec</option>
+                            <option>Kwiecień</option>
+                            <option>Maj</option>
+                            <option>Czerwiec</option>
+                            <option>Lipiec</option>
+                            <option>Sierpień</option>
+                            <option>Wrzesień</option>
+                            <option>Paźniernik</option>
+                            <option>Listopad</option>
+                            <option>Grudzień</option>
+                        </select>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" id="closeButton" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -32,7 +67,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row" style="text-align: center; justify-content: center;">
-                        <div class="btn btn-primary" style="text-align: center; justify-content: center;">
+                        <div class="btn btn-primary" [routerLink]="['/timesheet', 1]" style="text-align: center; justify-content: center;">
                             Details
                         </div>
                         <div class="btn btn-success ml-3" style="text-align: center; justify-content: center;">
@@ -155,11 +190,5 @@
             </div>
         </div>
     </div>
-    <ag-grid-angular
-        style="width: 620px; height: 350px;"
-        class="ag-theme-alpine"
-        [rowData]="rowData"
-        [columnDefs]="columnDefs">
-    </ag-grid-angular>
 </div>
 
