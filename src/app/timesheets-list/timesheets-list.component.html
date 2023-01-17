@@ -12,174 +12,32 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add new Timesheet</h5>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Month</label>
-                        <select class="form-control" type="sele" formControlName="projectName">
-                            <option>Styczeń</option>
-                            <option>Luty</option>
-                            <option>Marzec</option>
-                            <option>Kwiecień</option>
-                            <option>Maj</option>
-                            <option>Czerwiec</option>
-                            <option>Lipiec</option>
-                            <option>Sierpień</option>
-                            <option>Wrzesień</option>
-                            <option>Paźniernik</option>
-                            <option>Listopad</option>
-                            <option>Grudzień</option>
-                        </select>
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" id="closeButton" data-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" type="submit">Add</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="container-fluid mt-n10">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4" *ngFor="let timesheet of timesheetList">
             <div class="card mb-4 lift">
                 <div class="card-header">
                     <div class="col-sm">
                         <div class="row">
                             <div class="col">
-                                <h1>Styczeń 2022</h1>
+                                <h1>{{mapMonth(timesheet.month)}} {{timesheet.year}}</h1>
                             </div>
                             <div class="col" style="text-align: right; justify-content: right;">
-                                <div class="btn btn-outline-success" style="text-align: right; justify-content: right;">
-                                    Approved
-                                </div>
+                                <button disabled [ngClass]="timesheet.timesheetStatus == 'A' ? 'btn btn-success' :  
+                                    timesheet.timesheetStatus == 'P' ?
+                                    'btn btn-secondary' :
+                                    timesheet.timesheetStatus == 'D' ?
+                                    'btn btn-warning' :
+                                    'btn btn-danger'" style="text-align: right; justify-content: right;">
+                                    {{mapStatus(timesheet.timesheetStatus)}}
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row" style="text-align: center; justify-content: center;">
-                        <div class="btn btn-primary" [routerLink]="['/timesheet', 1]" style="text-align: center; justify-content: center;">
-                            Details
-                        </div>
-                        <div class="btn btn-success ml-3" style="text-align: center; justify-content: center;">
-                            160h Repored
-                        </div>                          
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card mb-4 lift">
-                <div class="card-header">
-                    <div class="col-sm">
-                        <div class="row">
-                            <div class="col">
-                                <h1>Styczeń 2022</h1>
-                            </div>
-                            <div class="col" style="text-align: right; justify-content: right;">
-                                <div class="btn btn-outline-success" style="text-align: right; justify-content: right;">
-                                    Approved
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row" style="text-align: center; justify-content: center;">
-                        <div class="btn btn-primary" style="text-align: center; justify-content: center;">
-                            Details
-                        </div>
-                        <div class="btn btn-success ml-3" style="text-align: center; justify-content: center;">
-                            160h Repored
-                        </div>                          
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card mb-4 lift">
-                <div class="card-header">
-                    <div class="col-sm">
-                        <div class="row">
-                            <div class="col">
-                                <h1>Styczeń 2022</h1>
-                            </div>
-                            <div class="col" style="text-align: right; justify-content: right;">
-                                <div class="btn btn-outline-success" style="text-align: right; justify-content: right;">
-                                    Approved
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row" style="text-align: center; justify-content: center;">
-                        <div class="btn btn-primary" style="text-align: center; justify-content: center;">
-                            Details
-                        </div>
-                        <div class="btn btn-success ml-3" style="text-align: center; justify-content: center;">
-                            160h Repored
-                        </div>                          
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card mb-4 lift">
-                <div class="card-header">
-                    <div class="col-sm">
-                        <div class="row">
-                            <div class="col">
-                                <h1>Styczeń 2022</h1>
-                            </div>
-                            <div class="col" style="text-align: right; justify-content: right;">
-                                <div class="btn btn-outline-success" style="text-align: right; justify-content: right;">
-                                    Approved
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row" style="text-align: center; justify-content: center;">
-                        <div class="btn btn-primary" style="text-align: center; justify-content: center;">
-                            Details
-                        </div>
-                        <div class="btn btn-success ml-3" style="text-align: center; justify-content: center;">
-                            160h Repored
-                        </div>                          
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card mb-4 lift">
-                <div class="card-header">
-                    <div class="col-sm">
-                        <div class="row">
-                            <div class="col">
-                                <h1>Styczeń 2022</h1>
-                            </div>
-                            <div class="col" style="text-align: right; justify-content: right;">
-                                <div class="btn btn-outline-success" style="text-align: right; justify-content: right;">
-                                    Approved
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row" style="text-align: center; justify-content: center;">
-                        <div class="btn btn-primary" style="text-align: center; justify-content: center;">
+                        <div class="btn btn-primary" [routerLink]="['/timesheet', timesheet.timesheetID]" style="text-align: center; justify-content: center;">
                             Details
                         </div>
                         <div class="btn btn-success ml-3" style="text-align: center; justify-content: center;">

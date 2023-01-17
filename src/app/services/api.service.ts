@@ -7,6 +7,7 @@ import { Project } from '../models/Project';
 import { column } from '../models/Column';
 import { task } from '../models/Task';
 import { Timesheet } from '../models/timesheet';
+import { TimesheetDetails } from '../models/timesheet-details';
 
 @Injectable({
   providedIn: 'root'
@@ -70,5 +71,21 @@ export class ApiService {
 
   public CreateTimesheet(timesheet: Timesheet) {
     return this.httpClient.post(`${environment.apiUrl}/api/Timesheets`, timesheet);
+  }
+
+  public GetTimesheetList(userId: string){
+    return this.httpClient.get<Timesheet[]>(`${environment.apiUrl}/api/Timesheets/Users/${userId}`).pipe(map(response => {
+      return response;
+    }));
+  }
+  
+  public GetTimesheetById(timesheetId: string){
+    return this.httpClient.get<Timesheet>(`${environment.apiUrl}/api/Timesheets/${timesheetId}`).pipe(map(response => {
+      return response;
+    }));
+  }
+
+  public UpdateTimeSheet(timesheetDetails: TimesheetDetails[]){
+    return this.httpClient.post(`${environment.apiUrl}/api/Timesheets/Details`, timesheetDetails);
   }
 }
