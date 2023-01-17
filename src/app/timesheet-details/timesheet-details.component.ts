@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { Project } from '../models/Project';
+import { Timesheet } from '../models/timesheet';
 import { TimesheetDetails } from '../models/timesheet-details';
+import { User } from '../models/user';
 import { ApiService } from '../services/api.service';
+import { mapMonth } from '../timesheets-list/timesheet-list.utils';
 
 @Component({
   selector: 'app-timesheet-details',
@@ -17,30 +20,17 @@ export class TimesheetDetailsComponent implements OnInit {
   private days = []
   private timesheetId: string
   public totalHours = 0;
+  public hoursReported = 0;
   public projectList: Project[] = [];
   public projectForm: FormGroup;
-  public timesheetDetails: TimesheetDetails;
+  public month = 0
+  public year = 1;
+  public timesheet: Timesheet;
+  public timesheetDetails: TimesheetDetails[];
 
-  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private route: ActivatedRoute) { }
+  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-
-    this.timesheetId = this.route.snapshot.paramMap.get('timesheetID')
-    console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
-    console.log(this.route.snapshot.paramMap.get('timesheetID'))
-
-
-    this.apiService.GetTimesheetById(this.timesheetId).subscribe(
-      val => {
-        console.log(val)
-        this.timesheetDetails = val.timesheetDetails
-      }
-    )
-
-    this.apiService.GetAllProjects().subscribe(response => {
-      this.projectList = response
-      console.log(response)
-    })
 
     this.projectForm = this.formBuilder.group({
       projectName: [null, Validators.required],
@@ -54,6 +44,65 @@ export class TimesheetDetailsComponent implements OnInit {
     suppressMovable: true,
   };
 
+  public saveDraft(){
+    this.gridApi.selectAll();
+    const request = this.gridApi.getSelectedRows();
+    console.log(request);
+    this.gridApi.deselectAll();
+
+
+  
+    let timesheetDetailsArray: TimesheetDetails[] = []
+    request.forEach(
+      project => {
+        project.day1 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 1, registeredHours: Number(project.day1), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day2 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 2, registeredHours: Number(project.day2), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day3 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 3, registeredHours: Number(project.day3), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day4 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 4, registeredHours: Number(project.day4), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day5 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 5, registeredHours: Number(project.day5), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day6 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 6, registeredHours: Number(project.day6), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day7 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 7, registeredHours: Number(project.day7), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day8 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 8, registeredHours: Number(project.day8), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day9 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 9, registeredHours: Number(project.day9), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day10 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 10, registeredHours:  Number(project.day10), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day11 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 11, registeredHours:  Number(project.day11), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day12 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 12, registeredHours:  Number(project.day12), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day13 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 13, registeredHours:  Number(project.day13), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day14 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 14, registeredHours:  Number(project.day14), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day15 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 15, registeredHours:  Number(project.day15), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day16 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 16, registeredHours:  Number(project.day16), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day17 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 17, registeredHours:  Number(project.day17), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day18 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 18, registeredHours:  Number(project.day18), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day19 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 19, registeredHours:  Number(project.day19), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day20 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 20, registeredHours:  Number(project.day20), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day21 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 21, registeredHours:  Number(project.day21), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day22 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 22, registeredHours:  Number(project.day22), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day23 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 23, registeredHours:  Number(project.day23), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day24 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 24, registeredHours:  Number(project.day24), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day25 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 25, registeredHours:  Number(project.day25), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day26 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 26, registeredHours:  Number(project.day26), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day27 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 27, registeredHours:  Number(project.day27), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day28 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 28, registeredHours:  Number(project.day28), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day29 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 29, registeredHours:  Number(project.day29), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day30 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 30, registeredHours:  Number(project.day30), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day31 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 31, registeredHours:  Number(project.day31), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+      }
+    )
+
+    console.log('dupa')
+    console.log(timesheetDetailsArray);
+
+    this.apiService.UpdateTimeSheetDetails(timesheetDetailsArray).subscribe(
+      val => {
+        console.log(val)
+        this.hoursReported = 0;
+        timesheetDetailsArray.forEach(detail => {
+          this.hoursReported += detail.registeredHours;
+        })
+      }
+    );
+  }
+
   public onSubmit() {
     this.gridApi.selectAll();
     const request = this.gridApi.getSelectedRows();
@@ -65,59 +114,71 @@ export class TimesheetDetailsComponent implements OnInit {
     let timesheetDetailsArray: TimesheetDetails[] = []
     request.forEach(
       project => {
-        project.day1 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 1, registeredHours: project.day1, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day2 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 2, registeredHours: project.day2, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day3 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 3, registeredHours: project.day3, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day4 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 4, registeredHours: project.day4, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day5 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 5, registeredHours: project.day5, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day6 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 6, registeredHours: project.day6, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day7 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 7, registeredHours: project.day7, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day8 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 8, registeredHours: project.day8, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day9 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 9, registeredHours: project.day9, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day10 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 10, registeredHours: project.day10, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day11 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 11, registeredHours: project.day11, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day12 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 12, registeredHours: project.day12, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day13 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 13, registeredHours: project.day13, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day14 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 14, registeredHours: project.day14, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day15 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 15, registeredHours: project.day15, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day16 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 16, registeredHours: project.day16, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day17 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 17, registeredHours: project.day17, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day18 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 18, registeredHours: project.day18, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day19 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 19, registeredHours: project.day19, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day20 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 20, registeredHours: project.day20, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day21 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 21, registeredHours: project.day21, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day22 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 22, registeredHours: project.day22, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day23 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 23, registeredHours: project.day23, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day24 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 24, registeredHours: project.day24, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day25 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 25, registeredHours: project.day25, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day26 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 26, registeredHours: project.day26, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day27 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 27, registeredHours: project.day27, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day28 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 28, registeredHours: project.day28, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day29 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 29, registeredHours: project.day29, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day30 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 30, registeredHours: project.day30, timesheetId: this.timesheetId} as TimesheetDetails) : null
-        project.day31 != null ? timesheetDetailsArray.push({projectTitle: project.projectName, day: 31, registeredHours: project.day31, timesheetId: this.timesheetId} as TimesheetDetails) : null
+        project.day1 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 1, registeredHours: Number(project.day1), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day2 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 2, registeredHours: Number(project.day2), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day3 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 3, registeredHours: Number(project.day3), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day4 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 4, registeredHours: Number(project.day4), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day5 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 5, registeredHours: Number(project.day5), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day6 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 6, registeredHours: Number(project.day6), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day7 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 7, registeredHours: Number(project.day7), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day8 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 8, registeredHours: Number(project.day8), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day9 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 9, registeredHours: Number(project.day9), timesheetId: Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day10 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 10, registeredHours:  Number(project.day10), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day11 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 11, registeredHours:  Number(project.day11), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day12 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 12, registeredHours:  Number(project.day12), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day13 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 13, registeredHours:  Number(project.day13), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day14 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 14, registeredHours:  Number(project.day14), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day15 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 15, registeredHours:  Number(project.day15), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day16 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 16, registeredHours:  Number(project.day16), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day17 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 17, registeredHours:  Number(project.day17), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day18 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 18, registeredHours:  Number(project.day18), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day19 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 19, registeredHours:  Number(project.day19), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day20 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 20, registeredHours:  Number(project.day20), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day21 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 21, registeredHours:  Number(project.day21), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day22 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 22, registeredHours:  Number(project.day22), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day23 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 23, registeredHours:  Number(project.day23), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day24 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 24, registeredHours:  Number(project.day24), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day25 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 25, registeredHours:  Number(project.day25), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day26 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 26, registeredHours:  Number(project.day26), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day27 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 27, registeredHours:  Number(project.day27), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day28 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 28, registeredHours:  Number(project.day28), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day29 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 29, registeredHours:  Number(project.day29), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day30 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 30, registeredHours:  Number(project.day30), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
+        project.day31 != null ? timesheetDetailsArray.push({projectTitle: project.projectTitle, day: 31, registeredHours:  Number(project.day31), timesheetId:  Number(this.timesheetId)} as TimesheetDetails) : null
       }
     )
 
     console.log('dupa')
     console.log(timesheetDetailsArray);
+    const timesheet = {
+      timesheetID: this.timesheet.timesheetID,
+      timesheetStatus: 'D',
+      userId: this.timesheet.userId,
+      month: this.timesheet.month,
+      year: this.timesheet.year
+    } as Timesheet
 
-    this.apiService.UpdateTimeSheet(timesheetDetailsArray).subscribe(
+    this.apiService.UpdateTimeSheetDetails(timesheetDetailsArray).subscribe(
       val => {
         console.log(val)
+        this.apiService.UpdateTimeSheet(timesheet).subscribe(
+          val => {
+            console.log(val)
+          }
+        );
       }
     );
 
-    // this.gridApi.applyTransaction({add: [{projectName: 'TWOJA STARA'}]})
+    this.router.navigate([`/timesheets-list`])
+
   }
 
 
   public addNewProject() {
-    console.log('siema')
-    console.log(this.projectForm.value)
+
 
     if(this.projectForm.valid){
-      this.gridApi.applyTransaction({add: [{projectName: this.projectForm.controls['projectName'].value.title}]})
+      this.gridApi.applyTransaction({add: [{projectTitle: this.projectForm.controls['projectName'].value.title}]})
       let closeButton = document.getElementById('closeButton');
       this.projectForm.patchValue({projectName: [null]})
       closeButton.click();
@@ -125,35 +186,69 @@ export class TimesheetDetailsComponent implements OnInit {
   }
 
   onGridReady(event: GridReadyEvent){
-    console.log('SIEEEMAAA')
-    console.log(event);
     this.gridApi = event.api;
 
-    const date = new Date(2023, 0, 1);
-    while(date.getMonth() === 0){
-      let curDate = new Date(date)
-      this.days.push({day: curDate.getDate(), isWeekendDay: (curDate.getDay() == 6 || curDate.getDay() == 0) ? true : false});
-      date.setDate(date.getDate() + 1)
-    }
+    this.timesheetId = this.route.snapshot.paramMap.get('timesheetID')
 
+    this.apiService.GetTimesheetById(this.timesheetId).subscribe(
+      val => {
+        let projectNames = []
+        console.log(val)
+        this.timesheet = val[0]
+        this.timesheetDetails = val[0].timesheetDetails
+        this.month = val[0].month
+        this.year = val[0].year
+        this.timesheetDetails.forEach(sheet => {
+          this.hoursReported += sheet.registeredHours
+        })
+        console.log(this.timesheet)
 
+        this.timesheetDetails.map(
+          sheetDetails => {
+            if(!projectNames.includes(sheetDetails.projectTitle)){
+              projectNames.push(sheetDetails.projectTitle)
+            }
+          }
+        )
+        let rowData = []
+        projectNames.forEach(project => {
+          let hours = []
+          this.timesheetDetails.forEach(
+            sheetDetails => {
+              if(project == sheetDetails.projectTitle){
+                hours.push({day: sheetDetails.day, hours: sheetDetails.registeredHours});
+              }
+            }
+          )
+          let temp = []
+          temp.push({projectTitle: project, dupa: hours.reduce(
+            (obj, item) => Object.assign(obj, { ['day' + item.day]: item.hours }), {})})
+          rowData.push(Object.assign({}, ...function _flatten(o) { return [].concat(...Object.keys(o).map(k => typeof o[k] === 'object' ? _flatten(o[k]) : ({[k]: o[k]})))}(temp)))
+        })
+        console.log(rowData)
+        this.gridApi.setRowData(rowData)
 
-    this.gridApi.setColumnDefs(this.createColumnsDef(this.days))
+        const date = new Date(this.timesheet.year, this.timesheet.month - 1, 1);
+        while(date.getMonth() === this.timesheet.month - 1){
+          let curDate = new Date(date)
+          this.days.push({day: curDate.getDate(), isWeekendDay: (curDate.getDay() == 6 || curDate.getDay() == 0) ? true : false});
+          date.setDate(date.getDate() + 1)
+        }
+    
+        this.gridApi.setColumnDefs(this.createColumnsDef(this.days))
+      }
+      
+    )
 
-    this.gridApi.setRowData(this.rowData)
+    this.apiService.GetAllProjects().subscribe(response => {
+      this.projectList = response
+    })
+
   }
-
-  public autoGroupColumnDef: ColDef = {
-    // width: 10,
-    // resizable: true
-    suppressMovable: true,
-  
-  };
 
   private createColumnsDef(days: {day: number, isWeekendDay: boolean}[]): ColDef[]{
     let colsDef: ColDef[] = []
-    colsDef.push( { field: 'projectName', headerName: 'Project Name', cellStyle: {border: '1px solid'} })
-    // colsDef.push( { field: 'total', headerName: 'Total',width: 70 , cellStyle: {border: '1px solid'} })
+    colsDef.push( { field: 'projectTitle', headerName: 'Project Name', cellStyle: {border: '1px solid'} })
     days.forEach(currDay => {
       if(!currDay.isWeekendDay){
         colsDef.push({ field: 'day' + currDay.day.toString(), headerName: currDay.day.toString(), width: 55, cellStyle: {border: '1px solid', "text-align": 'center'}, aggFunc: "sum", editable: true })
@@ -172,14 +267,15 @@ export class TimesheetDetailsComponent implements OnInit {
         Number(params.data.day19 ?? 0) + Number(params.data.day20 ?? 0) + Number(params.data.day21 ?? 0) + Number(params.data.day22 ?? 0) + Number(params.data.day23 ?? 0) + Number(params.data.day24 ?? 0) +
         Number(params.data.day25 ?? 0) + Number(params.data.day26 ?? 0) + Number(params.data.day27 ?? 0) + Number(params.data.day28 ?? 0) + Number(params.data.day29 ?? 0) + Number(params.data.day30 ?? 0) +
         Number(params.data.day31 ?? 0)
-      }, aggFunc: "sum" 
+      }, aggFunc: "sum"
     })
+
     
     return colsDef;
   }
 
-rowData = [
-
-];
+  mapMonth(month: number): string {
+    return mapMonth(month);
+  }
 
 }

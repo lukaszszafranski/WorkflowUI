@@ -6,5 +6,5 @@ export class Timesheet {
     year: number;
     timesheetStatus: string;
     userId: string;
-    timesheetDetails: TimesheetDetails
+    timesheetDetails: TimesheetDetails[]
 }

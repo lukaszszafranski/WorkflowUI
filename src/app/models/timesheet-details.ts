@@ -1,8 +1,8 @@
 export class TimesheetDetails {
     timesheetDetailsId: number;
-    timesheetId: string;
+    timesheetId: number;
     projectTitle: string;
-    registeredHours: string;
+    registeredHours: number;
     day: number;
 
 }

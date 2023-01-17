@@ -85,7 +85,11 @@ export class ApiService {
     }));
   }
 
-  public UpdateTimeSheet(timesheetDetails: TimesheetDetails[]){
+  public UpdateTimeSheet(timesheet: Timesheet){
+    return this.httpClient.put(`${environment.apiUrl}/api/Timesheets/${timesheet.timesheetID}`, timesheet);
+  }
+
+  public UpdateTimeSheetDetails(timesheetDetails: TimesheetDetails[]){
     return this.httpClient.post(`${environment.apiUrl}/api/Timesheets/Details`, timesheetDetails);
   }
 }

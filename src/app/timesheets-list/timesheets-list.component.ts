@@ -6,6 +6,7 @@ import { Timesheet } from '../models/timesheet';
 import { mapMonth, mapStatus } from './timesheet-list.utils';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { TimesheetDetails } from '../models/timesheet-details';
 
 @Component({
   selector: 'app-timesheets-list',
@@ -30,7 +31,7 @@ export class TimesheetsListComponent implements OnInit {
   }
 
   addTimesheet(){
-    this.apiService.CreateTimesheet({month: 5, year: 2025, timesheetStatus: 'N', userId: this.userId} as Timesheet).subscribe(
+    this.apiService.CreateTimesheet({month: 9, year: 2025, timesheetStatus: 'D', userId: this.userId} as Timesheet).subscribe(
       val => {
         console.log('dupa dupaa 12345')
         console.log(val)
@@ -45,6 +46,16 @@ export class TimesheetsListComponent implements OnInit {
 
   mapStatus(status: string): string {
     return mapStatus(status);
+  }
+
+  mapTotalHours(details: TimesheetDetails[]): number{
+    let hoursReporterd = 0;
+    details.forEach(
+      detail => {
+        hoursReporterd += detail.registeredHours;
+      }
+    )
+    return hoursReporterd;
   }
 
 }
