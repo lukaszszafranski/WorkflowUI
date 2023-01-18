@@ -8,6 +8,7 @@ import { column } from '../models/Column';
 import { task } from '../models/Task';
 import { Timesheet } from '../models/timesheet';
 import { TimesheetDetails } from '../models/timesheet-details';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +79,13 @@ export class ApiService {
       return response;
     }));
   }
+
+  public GetTimesheetListByStatus(timesheetStatus: string){
+    return this.httpClient.get<Timesheet[]>(`${environment.apiUrl}/api/Timesheets/Manager/${timesheetStatus}`).pipe(map(response => {
+      return response;
+    }));
+  }
+  
   
   public GetTimesheetById(timesheetId: string){
     return this.httpClient.get<Timesheet>(`${environment.apiUrl}/api/Timesheets/${timesheetId}`).pipe(map(response => {
@@ -91,5 +99,11 @@ export class ApiService {
 
   public UpdateTimeSheetDetails(timesheetDetails: TimesheetDetails[]){
     return this.httpClient.post(`${environment.apiUrl}/api/Timesheets/Details`, timesheetDetails);
+  }
+
+  public getUserById(userId: number){
+    return this.httpClient.get<User>(`${environment.apiUrl}/Users/${userId}`).pipe(map(response => {
+      return response;
+    }));
   }
 }

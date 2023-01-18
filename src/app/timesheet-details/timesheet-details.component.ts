@@ -35,6 +35,7 @@ export class TimesheetDetailsComponent implements OnInit {
     this.projectForm = this.formBuilder.group({
       projectName: [null, Validators.required],
   });
+
   }
 
   public defaultColDef: ColDef = {
@@ -47,7 +48,6 @@ export class TimesheetDetailsComponent implements OnInit {
   public saveDraft(){
     this.gridApi.selectAll();
     const request = this.gridApi.getSelectedRows();
-    console.log(request);
     this.gridApi.deselectAll();
 
 
@@ -89,12 +89,8 @@ export class TimesheetDetailsComponent implements OnInit {
       }
     )
 
-    console.log('dupa')
-    console.log(timesheetDetailsArray);
-
     this.apiService.UpdateTimeSheetDetails(timesheetDetailsArray).subscribe(
       val => {
-        console.log(val)
         this.hoursReported = 0;
         timesheetDetailsArray.forEach(detail => {
           this.hoursReported += detail.registeredHours;
@@ -106,7 +102,6 @@ export class TimesheetDetailsComponent implements OnInit {
   public onSubmit() {
     this.gridApi.selectAll();
     const request = this.gridApi.getSelectedRows();
-    console.log(request);
     this.gridApi.deselectAll();
 
 
@@ -148,11 +143,9 @@ export class TimesheetDetailsComponent implements OnInit {
       }
     )
 
-    console.log('dupa')
-    console.log(timesheetDetailsArray);
     const timesheet = {
       timesheetID: this.timesheet.timesheetID,
-      timesheetStatus: 'D',
+      timesheetStatus: 'P',
       userId: this.timesheet.userId,
       month: this.timesheet.month,
       year: this.timesheet.year
@@ -160,16 +153,13 @@ export class TimesheetDetailsComponent implements OnInit {
 
     this.apiService.UpdateTimeSheetDetails(timesheetDetailsArray).subscribe(
       val => {
-        console.log(val)
         this.apiService.UpdateTimeSheet(timesheet).subscribe(
           val => {
-            console.log(val)
+            this.router.navigate([`/timesheets-list`])
           }
         );
       }
     );
-
-    this.router.navigate([`/timesheets-list`])
 
   }
 
@@ -193,7 +183,6 @@ export class TimesheetDetailsComponent implements OnInit {
     this.apiService.GetTimesheetById(this.timesheetId).subscribe(
       val => {
         let projectNames = []
-        console.log(val)
         this.timesheet = val[0]
         this.timesheetDetails = val[0].timesheetDetails
         this.month = val[0].month
@@ -201,7 +190,6 @@ export class TimesheetDetailsComponent implements OnInit {
         this.timesheetDetails.forEach(sheet => {
           this.hoursReported += sheet.registeredHours
         })
-        console.log(this.timesheet)
 
         this.timesheetDetails.map(
           sheetDetails => {
@@ -225,7 +213,6 @@ export class TimesheetDetailsComponent implements OnInit {
             (obj, item) => Object.assign(obj, { ['day' + item.day]: item.hours }), {})})
           rowData.push(Object.assign({}, ...function _flatten(o) { return [].concat(...Object.keys(o).map(k => typeof o[k] === 'object' ? _flatten(o[k]) : ({[k]: o[k]})))}(temp)))
         })
-        console.log(rowData)
         this.gridApi.setRowData(rowData)
 
         const date = new Date(this.timesheet.year, this.timesheet.month - 1, 1);

@@ -21,11 +21,9 @@ export class TimesheetsListComponent implements OnInit {
   constructor(private apiService: ApiService, private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
-    console.log((localStorage.getItem("currentUser") as unknown as User).id)
     this.userId = (JSON.parse(localStorage.getItem("currentUser"))as unknown as User).id.toString()
     this.apiService.GetTimesheetList(this.userId).subscribe(response => {
       this.timesheetList = response;
-      console.log(response)
     })
   
   }
@@ -33,10 +31,8 @@ export class TimesheetsListComponent implements OnInit {
   addTimesheet(){
     this.apiService.CreateTimesheet({month: 9, year: 2025, timesheetStatus: 'D', userId: this.userId} as Timesheet).subscribe(
       val => {
-        console.log('dupa dupaa 12345')
-        console.log(val)
         this.router.navigate([`/timesheet/${(val as Timesheet).timesheetID}`])
-      }, error => console.log(error)
+      }
     )
   }
 

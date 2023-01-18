@@ -13,6 +13,7 @@ import { SupportComponent } from 'src/app/support/support.component';
 import { ProjectComponent } from 'src/app/project/project.component';
 import { TimesheetsListComponent } from 'src/app/timesheets-list/timesheets-list.component';
 import { TimesheetDetailsComponent } from 'src/app/timesheet-details/timesheet-details.component';
+import { AuthManagerGuard } from 'src/app/helpers/auth-menager.guard';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
