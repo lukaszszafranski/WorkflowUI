@@ -14,6 +14,8 @@ import { ProjectComponent } from 'src/app/project/project.component';
 import { TimesheetsListComponent } from 'src/app/timesheets-list/timesheets-list.component';
 import { TimesheetDetailsComponent } from 'src/app/timesheet-details/timesheet-details.component';
 import { AuthManagerGuard } from 'src/app/helpers/auth-menager.guard';
+import { ManageTimesheetsComponent } from 'src/app/manage-timesheets/manage-timesheets.component';
+import { ManageTimesheetDetailsComponent } from 'src/app/manage-timesheet-details/manage-timesheet-details.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -28,5 +30,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'support', component: SupportComponent },
     { path: 'project/:projectID', component: ProjectComponent },
     { path: 'timesheets-list', component: TimesheetsListComponent },
-    { path: 'timesheet/:timesheetID', component: TimesheetDetailsComponent }
+    { path: 'timesheets-review', component: ManageTimesheetsComponent },
+    { path: 'timesheet/:timesheetID', component: TimesheetDetailsComponent },
+    { path: 'timesheet-review/:timesheetID', component: ManageTimesheetDetailsComponent }
 ];

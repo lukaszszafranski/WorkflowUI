@@ -26,6 +26,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TimesheetsListComponent } from './timesheets-list/timesheets-list.component';
 import { TimesheetDetailsComponent } from './timesheet-details/timesheet-details.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ManageTimesheetsComponent } from './manage-timesheets/manage-timesheets.component';
+import { ManageTimesheetDetailsComponent } from './manage-timesheet-details/manage-timesheet-details.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { AgGridModule } from 'ag-grid-angular';
     FooterComponent,
     TimesheetsListComponent,
     TimesheetDetailsComponent,
+    ManageTimesheetsComponent,
+    ManageTimesheetDetailsComponent,
   ],
   imports: [
     BrowserModule,
