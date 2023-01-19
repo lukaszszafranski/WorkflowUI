@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GridApi, ColDef, GridReadyEvent } from 'ag-grid-community';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { Project } from '../models/Project';
 import { Timesheet } from '../models/timesheet';
 import { TimesheetDetails } from '../models/timesheet-details';
 import { ApiService } from '../services/api.service';
-import { mapMonth } from '../timesheets-list/timesheet-list.utils';
+import { mapMonth, mapStatus } from '../timesheets-list/timesheet-list.utils';
 
 @Component({
   selector: 'app-manage-timesheet-details',
@@ -29,7 +31,8 @@ export class ManageTimesheetDetailsComponent implements OnInit {
   public name = '';
   public surname = '';
 
-  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private apiService: ApiService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -47,6 +50,7 @@ export class ManageTimesheetDetailsComponent implements OnInit {
   };
 
   public decline(){
+    this.spinner.show()
     const timesheet = {
       timesheetID: this.timesheet.timesheetID,
       timesheetStatus: 'U',
@@ -57,12 +61,15 @@ export class ManageTimesheetDetailsComponent implements OnInit {
 
     this.apiService.UpdateTimeSheet(timesheet).subscribe(
       val => {
-        
+        this.timesheet.timesheetStatus = timesheet.timesheetStatus
+        this.toastr.success('Timesheet has been declined!')
+        this.spinner.hide()
       }
     );
   }
 
   public approve() {
+    this.spinner.show()
 
     const timesheet = {
       timesheetID: this.timesheet.timesheetID,
@@ -74,13 +81,16 @@ export class ManageTimesheetDetailsComponent implements OnInit {
 
     this.apiService.UpdateTimeSheet(timesheet).subscribe(
       val => {
-        
+        this.timesheet.timesheetStatus = timesheet.timesheetStatus
+        this.toastr.success('Timesheet has been approved!')
+        this.spinner.hide()
       }
     );
 
   }
 
   onGridReady(event: GridReadyEvent){
+    this.spinner.show()
     this.gridApi = event.api;
 
     this.timesheetId = this.route.snapshot.paramMap.get('timesheetID')
@@ -135,6 +145,7 @@ export class ManageTimesheetDetailsComponent implements OnInit {
         }
     
         this.gridApi.setColumnDefs(this.createColumnsDef(this.days))
+        this.spinner.hide()
       }
       
     )
@@ -150,7 +161,7 @@ export class ManageTimesheetDetailsComponent implements OnInit {
     colsDef.push( { field: 'projectTitle', headerName: 'Project Name', cellStyle: {border: '1px solid'} })
     days.forEach(currDay => {
       if(!currDay.isWeekendDay){
-        colsDef.push({ field: 'day' + currDay.day.toString(), headerName: currDay.day.toString(), width: 55, cellStyle: {border: '1px solid', "text-align": 'center'}, aggFunc: "sum" })
+        colsDef.push({ field: 'day' + currDay.day.toString(), headerName: currDay.day.toString(), width: 55, cellStyle: {border: '1px solid', "text-align": 'center'} })
         this.totalHours += 8;
       } else {
         colsDef.push({ field: currDay.day.toString(), width: 55, suppressSizeToFit: true, cellStyle: {border: '1px solid', background: 'lightGray', "text-align": 'center'} },)
@@ -166,7 +177,7 @@ export class ManageTimesheetDetailsComponent implements OnInit {
         Number(params.data.day19 ?? 0) + Number(params.data.day20 ?? 0) + Number(params.data.day21 ?? 0) + Number(params.data.day22 ?? 0) + Number(params.data.day23 ?? 0) + Number(params.data.day24 ?? 0) +
         Number(params.data.day25 ?? 0) + Number(params.data.day26 ?? 0) + Number(params.data.day27 ?? 0) + Number(params.data.day28 ?? 0) + Number(params.data.day29 ?? 0) + Number(params.data.day30 ?? 0) +
         Number(params.data.day31 ?? 0)
-      }, aggFunc: "sum"
+      }
     })
 
     
@@ -175,6 +186,10 @@ export class ManageTimesheetDetailsComponent implements OnInit {
 
   mapMonth(month: number): string {
     return mapMonth(month);
+  }
+
+  mapStatus(status: string): string {
+    return mapStatus(status);
   }
 
 }

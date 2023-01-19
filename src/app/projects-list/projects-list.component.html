@@ -13,6 +13,29 @@
     <p style="color: white"> Openning connection to our database... </p>
 </ngx-spinner>
 <div class="container-fluid mt-n10">
+    <button class="btn btn-green mb-3" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp; Add project</button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Add your project</h5>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="projectForm" (ngSubmit)="createProject()">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Project name</label>
+                            <input class="form-control" [(ngModel)]='title' type="text" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" id="closeButton" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary" type="submit">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-3" *ngFor="let project of projectsArray">
             <div class="card-deck">

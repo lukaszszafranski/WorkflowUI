@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+
+  public role: string;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.role = (JSON.parse(localStorage.getItem("currentUser"))as unknown as User).role.toString()
   }
 
 }

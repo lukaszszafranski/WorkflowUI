@@ -30,7 +30,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'support', component: SupportComponent },
     { path: 'project/:projectID', component: ProjectComponent },
     { path: 'timesheets-list', component: TimesheetsListComponent },
-    { path: 'timesheets-review', component: ManageTimesheetsComponent },
+    { path: 'timesheets-review', component: ManageTimesheetsComponent, canActivate: [AuthManagerGuard] },
     { path: 'timesheet/:timesheetID', component: TimesheetDetailsComponent },
-    { path: 'timesheet-review/:timesheetID', component: ManageTimesheetDetailsComponent }
+    { path: 'timesheet-review/:timesheetID', component: ManageTimesheetDetailsComponent, canActivate: [AuthManagerGuard] }
 ];

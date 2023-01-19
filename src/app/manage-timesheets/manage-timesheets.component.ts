@@ -20,21 +20,20 @@ export class ManageTimesheetsComponent implements OnInit {
   constructor(private apiService: ApiService, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show()
     this.apiService.GetTimesheetListByStatus('P').subscribe(
       response => {
-        console.log('aaaaaaaaaaaaaaa')
         this.timesheetList = response;
         this.timesheetList.map(sheet => {
-          console.log('bbbbbbbbbb')
           this.apiService.getUserById(Number(sheet.userId)).subscribe(
             response => {
               this.users.push(response);
             }
           )
+          this.spinner.hide()
         })
       }
     )
-    console.log(this.timesheetList)
   }
 
   mapMonth(month: number): string {

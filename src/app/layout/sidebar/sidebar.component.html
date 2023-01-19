@@ -15,7 +15,7 @@
                 ><div class="nav-link-icon"><i class="fas fa-calendar"></i></div>
                 Timesheets
                 </a>
-                <a class="nav-link collapsed" routerLink="/timesheets-review" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
+                <a *ngIf="role == 'Manager'" class="nav-link collapsed" routerLink="/timesheets-review" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
                 ><div class="nav-link-icon"><i class="fas fa-calendar"></i></div>
                 Review Timesheets
                 </a>

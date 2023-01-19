@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { Project } from '../models/Project';
 import { Timesheet } from '../models/timesheet';
 import { TimesheetDetails } from '../models/timesheet-details';
-import { User } from '../models/user';
 import { ApiService } from '../services/api.service';
-import { mapMonth } from '../timesheets-list/timesheet-list.utils';
+import { mapMonth, mapStatus } from '../timesheets-list/timesheet-list.utils';
 
 @Component({
   selector: 'app-timesheet-details',
@@ -28,7 +29,8 @@ export class TimesheetDetailsComponent implements OnInit {
   public timesheet: Timesheet;
   public timesheetDetails: TimesheetDetails[];
 
-  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private apiService: ApiService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -46,6 +48,7 @@ export class TimesheetDetailsComponent implements OnInit {
   };
 
   public saveDraft(){
+    this.spinner.show()
     this.gridApi.selectAll();
     const request = this.gridApi.getSelectedRows();
     this.gridApi.deselectAll();
@@ -93,13 +96,16 @@ export class TimesheetDetailsComponent implements OnInit {
       val => {
         this.hoursReported = 0;
         timesheetDetailsArray.forEach(detail => {
+          this.spinner.hide()
           this.hoursReported += detail.registeredHours;
         })
+        this.toastr.success("Timesheet has been saved!")
       }
     );
   }
 
   public onSubmit() {
+    this.spinner.show()
     this.gridApi.selectAll();
     const request = this.gridApi.getSelectedRows();
     this.gridApi.deselectAll();
@@ -151,31 +157,61 @@ export class TimesheetDetailsComponent implements OnInit {
       year: this.timesheet.year
     } as Timesheet
 
-    this.apiService.UpdateTimeSheetDetails(timesheetDetailsArray).subscribe(
-      val => {
-        this.apiService.UpdateTimeSheet(timesheet).subscribe(
+    let tempHours = 0;
+    timesheetDetailsArray.forEach(detail => {
+      tempHours += detail.registeredHours});
+    if(tempHours != this.totalHours){
+      this.spinner.hide()
+      this.toastr.warning("To submit timesheet you have to report correct hours!")
+
+    } else {
+      var result = [];
+      timesheetDetailsArray.reduce(function(res, value) {
+        if (!res[value.day]) {
+          res[value.day] = { Id: value.day, registeredHours: 0 };
+          result.push(res[value.day])
+        }
+        res[value.day].registeredHours += value.registeredHours;
+        return res;
+      }, {});
+      
+
+      if(result.map(value => value.registeredHours).some(hours => hours > 8)){
+        this.spinner.hide()
+        this.toastr.warning("You cannot report more than 8h per day!")
+      } else {
+        this.apiService.UpdateTimeSheetDetails(timesheetDetailsArray).subscribe(
           val => {
-            this.router.navigate([`/timesheets-list`])
+            this.apiService.UpdateTimeSheet(timesheet).subscribe(
+              val => {
+                this.toastr.success("Timesheet has been submitted!")
+                this.router.navigate([`/timesheets-list`])
+              }
+            );
           }
         );
       }
-    );
-
+    }
   }
-
 
   public addNewProject() {
 
 
     if(this.projectForm.valid){
-      this.gridApi.applyTransaction({add: [{projectTitle: this.projectForm.controls['projectName'].value.title}]})
-      let closeButton = document.getElementById('closeButton');
-      this.projectForm.patchValue({projectName: [null]})
-      closeButton.click();
+      const titles = this.gridApi.getRenderedNodes().map(node => node.data?.projectTitle)
+      if(!titles.includes(this.projectForm.controls['projectName'].value.title)){
+        this.gridApi.applyTransaction({add: [{projectTitle: this.projectForm.controls['projectName'].value.title}]})
+        let closeButton = document.getElementById('closeButton');
+        this.projectForm.patchValue({projectName: [null]})
+        closeButton.click();
+      } else {
+        this.toastr.warning('This Project already exists in timesheet!')
+      }
     }
   }
 
   onGridReady(event: GridReadyEvent){
+    this.spinner.show()
     this.gridApi = event.api;
 
     this.timesheetId = this.route.snapshot.paramMap.get('timesheetID')
@@ -223,6 +259,7 @@ export class TimesheetDetailsComponent implements OnInit {
         }
     
         this.gridApi.setColumnDefs(this.createColumnsDef(this.days))
+        this.spinner.hide()
       }
       
     )
@@ -238,7 +275,7 @@ export class TimesheetDetailsComponent implements OnInit {
     colsDef.push( { field: 'projectTitle', headerName: 'Project Name', cellStyle: {border: '1px solid'} })
     days.forEach(currDay => {
       if(!currDay.isWeekendDay){
-        colsDef.push({ field: 'day' + currDay.day.toString(), headerName: currDay.day.toString(), width: 55, cellStyle: {border: '1px solid', "text-align": 'center'}, aggFunc: "sum", editable: true })
+        colsDef.push({ field: 'day' + currDay.day.toString(), headerName: currDay.day.toString(), width: 55, cellStyle: {border: '1px solid', "text-align": 'center'}, editable: true })
         this.totalHours += 8;
       } else {
         colsDef.push({ field: currDay.day.toString(), width: 55, suppressSizeToFit: true, cellStyle: {border: '1px solid', background: 'lightGray', "text-align": 'center'} },)
@@ -254,7 +291,7 @@ export class TimesheetDetailsComponent implements OnInit {
         Number(params.data.day19 ?? 0) + Number(params.data.day20 ?? 0) + Number(params.data.day21 ?? 0) + Number(params.data.day22 ?? 0) + Number(params.data.day23 ?? 0) + Number(params.data.day24 ?? 0) +
         Number(params.data.day25 ?? 0) + Number(params.data.day26 ?? 0) + Number(params.data.day27 ?? 0) + Number(params.data.day28 ?? 0) + Number(params.data.day29 ?? 0) + Number(params.data.day30 ?? 0) +
         Number(params.data.day31 ?? 0)
-      }, aggFunc: "sum"
+      }
     })
 
     
@@ -263,6 +300,10 @@ export class TimesheetDetailsComponent implements OnInit {
 
   mapMonth(month: number): string {
     return mapMonth(month);
+  }
+
+  mapStatus(status: string): string {
+    return mapStatus(status);
   }
 
 }

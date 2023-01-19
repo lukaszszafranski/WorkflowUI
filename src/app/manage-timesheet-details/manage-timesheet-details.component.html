@@ -13,17 +13,34 @@
         </div>
     </div>
 </div>
+<ngx-spinner bdOpacity=0.5 bdColor="rgba(51,51,51,0.85)" size="medium" color="#fff" type="line-scale" [fullScreen]="true">
+    <p style="color: white"> Openning connection to our database... </p>
+</ngx-spinner>
 <div class="container-fluid mt-n10">
+    <div class="page-header-title mb-3" style="color: white;">
+        Status:
+        <div [ngClass]="timesheet?.timesheetStatus == 'A' ? 'btn btn-success' :  
+        timesheet?.timesheetStatus == 'P' ?
+        'btn btn-secondary' :
+        timesheet?.timesheetStatus == 'D' ?
+        'btn btn-warning' :
+        timesheet?.timesheetStatus == 'U' ?
+        'btn btn-danger' : ''" 
+        style="display:inline-block; width: 160px;">{{mapStatus(timesheet?.timesheetStatus)}}</div>
+    </div> 
     <ag-grid-angular
         style="width: 100%;"
         class="ag-theme-alpine"
         [defaultColDef]="defaultColDef"
         [domLayout]="'autoHeight'"
         (gridReady)="onGridReady($event)"
-        [suppressAggFuncInHeader]="true"
+        data-ui-element="timesheet-details-table"
         >
     </ag-grid-angular>
     <div class="row mt-3">
+        <button class="btn btn-secondary ml-4" type="button" [routerLink]="['/timesheets-review']">
+            <i class="fas fa-backward" style="color: white;"></i>
+        </button>
         <div class="col" style="text-align: right; justify-content: right;">
             <div class="btn btn-danger" (click)="decline()" style="text-align: right; justify-content: right;">Decline</div>
             <div class="btn btn-success ml-3 mr-4"  (click)="approve()" style="text-align: right; justify-content: right;">Approve</div>

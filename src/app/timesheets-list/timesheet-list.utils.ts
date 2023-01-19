@@ -45,6 +45,6 @@ export function mapStatus(statusCode: string): string{
         case 'A':
             return 'Approved';
         default:
-            return 'Unknown';
+            return '';
     }
 }
