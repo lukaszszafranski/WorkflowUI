@@ -24,7 +24,8 @@
         'btn btn-secondary' :
         timesheet?.timesheetStatus == 'D' ?
         'btn btn-warning' :
-        ''" style="display:inline-block; width: 160px;">{{mapStatus(timesheet?.timesheetStatus)}}</div>
+        timesheet?.timesheetStatus == 'U' ?
+        'btn btn-danger' : ''" style="display:inline-block; width: 160px;">{{mapStatus(timesheet?.timesheetStatus)}}</div>
     </div> 
     <ag-grid-angular
         style="width: 100%;"
