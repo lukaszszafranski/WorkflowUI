@@ -1,4 +1,5 @@
 import { LoginPage } from "../support/Pages/logInPage";
+import { Redirects } from "../support/Pages/redirects";
 
 describe('Main Page', () => {
 
@@ -17,27 +18,30 @@ it('After successful login the main page should be displayed', () => {
 });
 
 it.only('As a user I want to be redirected to Projects List', () => {
-
-    cy.get('#accordionSidenav > [routerlink="/projects-list"]').click();
-    cy.get('span').should('contain.text', 'Projects'); 
+    const redirects = new Redirects();
+    redirects.redirectToProjectsPage();
+  
     cy.url().should('eq', 'https://portale-korporacyjne.azurewebsites.net/projects-list')
 });
 
 it.only('As a user I want to be redirected to Timesheets', () => {
-    cy.get('#accordionSidenav > [routerlink="/timesheets-list"]').click();
-    cy.get('span').should('contain.text', 'Timesheets'); 
+    const redirects = new Redirects();
+    redirects.redirectToTimesheetsPage();
+  
     cy.url().should('eq', 'https://portale-korporacyjne.azurewebsites.net/timesheets-list')
 });
 
 it.only('As a user I want to be redirected to Review Timesheets', () => {
-    cy.get('#accordionSidenav > [routerlink="/timesheets-review"]').click();
-    cy.get('span').should('contain.text', 'Timesheets'); 
+    const redirects = new Redirects();
+    redirects.redirectToReviewTimesheetsPage();
+  
     cy.url().should('eq', 'https://portale-korporacyjne.azurewebsites.net/timesheets-review')
 });
 
 it.only('As a user I want to be redirected to Chat', () => {
-    cy.get('#accordionSidenav > [routerlink="/chat"]').click();
-    cy.get('span').should('contain.text', 'Chat'); 
+    const redirects = new Redirects();
+    redirects.redirectToChatPage();
+  
     cy.url().should('eq', 'https://portale-korporacyjne.azurewebsites.net/chat')
 });
 

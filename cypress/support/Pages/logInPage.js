@@ -8,6 +8,8 @@ logInUsingCredentials(username, password){
     cy.get('[formcontrolname="password"]').type(password);
 
     cy.get('.btn').contains('Login').click();
+
+    cy.wait(1000);
 }
 
 
