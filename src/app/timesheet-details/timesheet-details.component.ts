@@ -54,7 +54,7 @@ export class TimesheetDetailsComponent implements OnInit {
 
 
   
-    let timesheetDetailsArray: TimesheetDetails[] = mapDataToRequest(request);
+    let timesheetDetailsArray: TimesheetDetails[] = mapDataToRequest(request, this.timesheetId);
 
     this.apiService.UpdateTimeSheetDetails(timesheetDetailsArray).subscribe(
       val => {
@@ -74,7 +74,7 @@ export class TimesheetDetailsComponent implements OnInit {
     const request = this.gridApi.getSelectedRows();
     this.gridApi.deselectAll();
   
-    let timesheetDetailsArray: TimesheetDetails[] = mapDataToRequest(request);
+    let timesheetDetailsArray: TimesheetDetails[] = mapDataToRequest(request, this.timesheetId);
 
     const timesheet = {
       timesheetID: this.timesheet.timesheetID,
