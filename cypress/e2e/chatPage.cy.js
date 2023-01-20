@@ -1,7 +1,7 @@
 import { LoginPage } from "../support/Pages/logInPage";
 import { Redirects } from "../support/Pages/redirects";
 
-describe('Timesheets Page', () => {
+describe('Chat Page', () => {
 
     beforeEach(() => {
         cy.visit('https://portale-korporacyjne.azurewebsites.net/login')
@@ -13,10 +13,14 @@ describe('Timesheets Page', () => {
         var password = '123456';
     
         loginPage.logInUsingCredentials(username, password);
-        redirects.redirectToTimesheetsPage();
+        redirects.redirectToChatPage();
     })
 
-it.skip('As a user I want to create a new timesheet', () => {
-    cy.get('.page-header-title > .btn').contains('Add new Timesheet').click();
+it('As a user I want to send a message on the chat', () => {
+    const message = ('Wiadomość z:' + Date.now());
+
+    cy.get('.form-control').type(message, {force: true})
+    cy.get('.btn-message').click();
+    cy.get('.btn-blue').should('contain.text', message);
 });
 })
