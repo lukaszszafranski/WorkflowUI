@@ -9,6 +9,8 @@ import { task } from '../models/Task';
 import { Timesheet } from '../models/timesheet';
 import { TimesheetDetails } from '../models/timesheet-details';
 import { User } from '../models/user';
+import { ManagerTable } from '../models/manager-table';
+import { ChartData } from '../models/chart-data';
 
 @Injectable({
   providedIn: 'root'
@@ -103,6 +105,30 @@ export class ApiService {
 
   public getUserById(userId: number){
     return this.httpClient.get<User>(`${environment.apiUrl}/Users/${userId}`).pipe(map(response => {
+      return response;
+    }));
+  }
+
+  public getManagerTable() {
+    return this.httpClient.get<ManagerTable[]>(`${environment.apiUrl}/api/Timesheets/Manager/Table`).pipe(map(response => {
+      return response;
+    }));
+  }
+
+  public getManagerChartData() {
+    return this.httpClient.get<ChartData[]>(`${environment.apiUrl}/api/Timesheets/Manager/Chart/Data`).pipe(map(response => {
+      return response;
+    }));
+  }
+
+  public getUserChartDataTotalRegisteredHoursByDate(userId: string) {
+    return this.httpClient.get<ChartData[]>(`${environment.apiUrl}/api/Timesheets/User/Chart/Data/${userId}`).pipe(map(response => {
+      return response;
+    }));
+  }
+
+  public getUserChartDataTotalRegisteredHoursPerProject(userId: string) {
+    return this.httpClient.get<ChartData[]>(`${environment.apiUrl}/api/Timesheets/User/Chart/Data/Project/${userId}`).pipe(map(response => {
       return response;
     }));
   }

@@ -4,6 +4,7 @@
             <h1 class="page-header-title">
                 <div class="page-header-icon"><i class="fas fa-tasks"></i></div>
                 <span>Projects</span>
+                <button class="btn btn-green ml-5" style="text-align: right; justify-content: right;" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp; Add project</button>
             </h1>
             <div class="page-header-subtitle">All available projects.</div>
         </div>
@@ -13,7 +14,6 @@
     <p style="color: white"> Openning connection to our database... </p>
 </ngx-spinner>
 <div class="container-fluid mt-n10">
-    <button class="btn btn-green mb-3" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp; Add project</button>
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -41,7 +41,10 @@
             <div class="card-deck">
                 <div class="card mb-4" >
                     <div class="card-body">
-                            <h5 class="card-title text-primary"><a [routerLink]="['/project', project.projectID]">{{ project.title }}</a></h5>
+                            <h5 class="card-title text-primary">
+                                <!-- <a [routerLink]="['/project', project.projectID]">{{ project.title }}</a> -->
+                                <a>{{ project.title }}</a>
+                            </h5>
                     </div>
                 </div>
             </div>

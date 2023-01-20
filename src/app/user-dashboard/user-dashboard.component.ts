@@ -15,10 +15,10 @@ import { ChartData } from '../models/chart-data';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  templateUrl: './user-dashboard.component.html',
+  styleUrls: ['./user-dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class UserDashboardComponent implements OnInit {
 
   currentUser: User;
   projectForm: FormGroup;
@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
   defaultProject: Project;
   gridApi: GridApi;
   chartData: ChartData[];
+  chartData2: ChartData[];
   
   // options
   showXAxis = true;
@@ -33,9 +34,18 @@ export class DashboardComponent implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'User';
+  xAxisLabel = 'Date';
   showYAxisLabel = true;
   yAxisLabel = 'Registered hours';
+
+  showXAxis2 = true;
+  showYAxis2 = true;
+  gradient2 = false;
+  showLegend2 = true;
+  showXAxisLabel2 = true;
+  xAxisLabel2 = 'Project';
+  showYAxisLabel2 = true;
+  yAxisLabel2 = 'Registered hours';
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
@@ -47,8 +57,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.apiService.getManagerChartData().subscribe(data => {
+    this.apiService.getUserChartDataTotalRegisteredHoursByDate((JSON.parse(localStorage.getItem("currentUser"))as unknown as User).id.toString()).subscribe(data => {
       this.chartData = data;
+    })
+    this.apiService.getUserChartDataTotalRegisteredHoursPerProject((JSON.parse(localStorage.getItem("currentUser"))as unknown as User).id.toString()).subscribe(data => {
+      this.chartData2 = data;
       this.spinner.hide();
     })
   }

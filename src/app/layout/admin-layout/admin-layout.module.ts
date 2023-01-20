@@ -18,6 +18,9 @@ import { ProjectComponent } from '../../project/project.component';
 import { IconsModule } from 'src/app/icons/icons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { UserDashboardComponent } from 'src/app/user-dashboard/user-dashboard.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   imports: [
@@ -29,9 +32,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ToastrModule.forRoot(),
     NgxSpinnerModule,
     DragDropModule,
+    AgGridModule,
+    NgxChartsModule
   ],
   declarations: [
     DashboardComponent,
+    UserDashboardComponent,
     UserProfileComponent,
     OrganizationComponent,
     OrganizationAddMembersComponent,
@@ -41,7 +47,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ProjectsListComponent,
     ChatComponent,
     ContactComponent,
-    SupportComponent,
+    SupportComponent
   ]
 })
 

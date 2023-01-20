@@ -16,9 +16,11 @@ import { TimesheetDetailsComponent } from 'src/app/timesheet-details/timesheet-d
 import { AuthManagerGuard } from 'src/app/helpers/auth-menager.guard';
 import { ManageTimesheetsComponent } from 'src/app/manage-timesheets/manage-timesheets.component';
 import { ManageTimesheetDetailsComponent } from 'src/app/manage-timesheet-details/manage-timesheet-details.component';
+import { UserDashboardComponent } from 'src/app/user-dashboard/user-dashboard.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthManagerGuard] },
+    { path: 'user-dashboard', component: UserDashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'organization', component: OrganizationComponent },
     { path: 'organization-register', component: OrganizationRegistrationComponent },

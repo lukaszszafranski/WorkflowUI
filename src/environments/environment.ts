@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://workflowapi20230103195258.azurewebsites.net',
-  //apiUrl: 'https://localhost:44349',
+  //apiUrl: 'https://workflowapi20230103195258.azurewebsites.net',
+  apiUrl: 'https://localhost:44349',
 };
 
 /*

@@ -44,7 +44,7 @@ import { ManageTimesheetDetailsComponent } from './manage-timesheet-details/mana
     TimesheetsListComponent,
     TimesheetDetailsComponent,
     ManageTimesheetsComponent,
-    ManageTimesheetDetailsComponent,
+    ManageTimesheetDetailsComponent
   ],
   imports: [
     BrowserModule,

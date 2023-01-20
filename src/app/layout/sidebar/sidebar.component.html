@@ -3,9 +3,13 @@
         <div class="sidenav-menu">
             <div class="nav accordion" id="accordionSidenav">
                 <div class="sidenav-menu-heading">Core</div>
-                <a class="nav-link collapsed" routerLink="/dashboard" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards"
-                    ><div class="nav-link-icon"><i class="fas fa-heartbeat"></i></div>
+                <a *ngIf="role == 'Manager'" class="nav-link collapsed" routerLink="/dashboard" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards"
+                    ><div class="nav-link-icon"><i class="fas fa-table"></i></div>
                     Dashboard
+                </a>
+                <a class="nav-link collapsed" routerLink="/user-dashboard" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards"
+                ><div class="nav-link-icon"><i class="fas fa-user-clock"></i></div>
+                    Overview
                 </a>
                 <a class="nav-link collapsed" routerLink="/projects-list" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
                     ><div class="nav-link-icon"><i class="fas fa-tasks"></i></div>
@@ -16,7 +20,7 @@
                 Timesheets
                 </a>
                 <a *ngIf="role == 'Manager'" class="nav-link collapsed" routerLink="/timesheets-review" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                ><div class="nav-link-icon"><i class="fas fa-calendar"></i></div>
+                ><div class="nav-link-icon"><i class="fas fa-clipboard-check"></i></div>
                 Review Timesheets
                 </a>
                 <div class="sidenav-menu-heading">Additional features</div>        

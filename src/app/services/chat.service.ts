@@ -23,10 +23,11 @@ export class ChatService {
     this._hubConnection.invoke('NewMessage', message);
   }
 
-  private createConnection() {
-    this._hubConnection = new HubConnectionBuilder()
+  private async createConnection() {
+    let connection = this._hubConnection = new HubConnectionBuilder()
       .withUrl(environment.apiUrl + '/MessageHub')
       .build();
+    await connection.start();
   }
 
   private startConnection(): void {

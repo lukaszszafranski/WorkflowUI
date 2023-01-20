@@ -1,0 +1,60 @@
+<div class="page-header pb-10 page-header-dark bg-primary">
+    <div class="container-fluid">
+        <div class="page-header-content">
+            <h1 class="page-header-title">
+                <div class="page-header-icon"><i class="fas fa-user-clock"></i></div>
+                <span>Overview</span>
+            </h1>
+            <div class="page-header-subtitle">Your personal overview</div>
+        </div>
+    </div>
+</div>
+<div style="position: relative;">
+    <ngx-spinner bdOpacity=0.5 bdColor="rgba(51,51,51,0.85)" size="medium" color="#fff" type="line-scale" [fullScreen]="true">
+        <p style="color: white"> Openning connection to our database... </p>
+    </ngx-spinner>
+</div>
+<div class="container-fluid mt-n10">
+    <div class="card card-header-actions mx-auto">
+        <div class="card-header">
+            Registered hours per project
+        </div>
+        <div class="card-body">
+            <ngx-charts-bar-vertical
+            [results]="chartData2"
+            [gradient]="gradient2"
+            [xAxis]="showXAxis2"
+            [yAxis]="showYAxis2"
+            [legend]="showLegend2"
+            [showXAxisLabel]="showXAxisLabel2"
+            [showYAxisLabel]="showYAxisLabel2"
+            [showGridLines]="false"
+            [xAxisLabel]="xAxisLabel2"
+            [yAxisLabel]="yAxisLabel2"
+            (select)="onSelect($event)">
+            </ngx-charts-bar-vertical>      
+        </div>
+    </div>
+    <br>
+    <div class="card card-header-actions mx-auto">
+        <div class="card-header">
+            Registered hours per timesheet
+        </div>
+        <div class="card-body">
+            <ngx-charts-bar-vertical
+            [results]="chartData"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [showGridLines]="false"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            (select)="onSelect($event)">
+            </ngx-charts-bar-vertical>                        
+        </div>
+    </div>          
+</div>
+

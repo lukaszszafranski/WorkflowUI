@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         // get return url from route parameters or default to '/'
         // tslint:disable-next-line: no-string-literal
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/timesheets-list';
     }
 
     ngOnDestroy() {
@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         // stop here if form is invalid
         if (this.loginForm.invalid) {
             this.toastr.warning('Form is invalid!');
+            this.spinner.hide();
         }
         else {
             this.authenticationService.login(this.f.username.value, this.f.password.value)
