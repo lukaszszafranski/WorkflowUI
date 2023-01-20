@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -36,9 +37,10 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>ApiService</li>
+  <li >ApiService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +64,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -77,47 +80,91 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#CreateColumn">CreateColumn</a>
+                                <a href="#CreateColumn" >CreateColumn</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#CreateProject">CreateProject</a>
+                                <a href="#CreateProject" >CreateProject</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#CreateTask">CreateTask</a>
+                                <a href="#CreateTask" >CreateTask</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#DeleteProject">DeleteProject</a>
+                                <a href="#CreateTimesheet" >CreateTimesheet</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#GetAllProjects">GetAllProjects</a>
+                                <a href="#DeleteProject" >DeleteProject</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#GetProjectByID">GetProjectByID</a>
+                                <a href="#GetAllProjects" >GetAllProjects</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#RemoveColumn">RemoveColumn</a>
+                                <a href="#getManagerChartData" >getManagerChartData</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#RemoveTask">RemoveTask</a>
+                                <a href="#getManagerTable" >getManagerTable</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#UpdateColumn">UpdateColumn</a>
+                                <a href="#GetProjectByID" >GetProjectByID</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#UpdateProject">UpdateProject</a>
+                                <a href="#GetTimesheetById" >GetTimesheetById</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#UpdateTask">UpdateTask</a>
+                                <a href="#GetTimesheetList" >GetTimesheetList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GetTimesheetListByStatus" >GetTimesheetListByStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUserById" >getUserById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUserChartDataTotalRegisteredHoursByDate" >getUserChartDataTotalRegisteredHoursByDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUserChartDataTotalRegisteredHoursPerProject" >getUserChartDataTotalRegisteredHoursPerProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#RemoveColumn" >RemoveColumn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#RemoveTask" >RemoveTask</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#UpdateColumn" >UpdateColumn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#UpdateProject" >UpdateProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#UpdateTask" >UpdateTask</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#UpdateTimeSheet" >UpdateTimeSheet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#UpdateTimeSheetDetails" >UpdateTimeSheetDetails</a>
                             </li>
                         </ul>
                     </td>
@@ -142,7 +189,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/api.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/api.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -191,10 +238,8 @@
                 <td class="col-md-4">
                     <a name="CreateColumn"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            CreateColumn
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>CreateColumn</b></span>
                         <a href="#CreateColumn"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -202,15 +247,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>CreateColumn(column: <a href="../classes/column.html">column</a>, projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>CreateColumn(column: <a href="../classes/column.html" target="_self">column</a>, projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/services/api.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/services/api.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -220,6 +265,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -275,10 +321,8 @@
                 <td class="col-md-4">
                     <a name="CreateProject"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            CreateProject
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>CreateProject</b></span>
                         <a href="#CreateProject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -286,15 +330,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>CreateProject(project: <a href="../classes/Project.html">Project</a>)</code>
+                    <code>CreateProject(project: <a href="../classes/Project.html" target="_self">Project</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/services/api.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/services/api.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -304,6 +348,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -347,10 +392,8 @@
                 <td class="col-md-4">
                     <a name="CreateTask"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            CreateTask
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>CreateTask</b></span>
                         <a href="#CreateTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -358,15 +401,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>CreateTask(task: <a href="../classes/task.html">task</a>, projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, columnId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>CreateTask(task: <a href="../classes/task.html" target="_self">task</a>, projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, columnId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/services/api.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/services/api.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -376,6 +419,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -441,12 +485,81 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="CreateTimesheet"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>CreateTimesheet</b></span>
+                        <a href="#CreateTimesheet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>CreateTimesheet(timesheet: <a href="../classes/Timesheet.html" target="_self">Timesheet</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/services/api.service.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>timesheet</td>
+                                    <td>
+                                                <code><a href="../classes/Timesheet.html" target="_self" >Timesheet</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="DeleteProject"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            DeleteProject
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>DeleteProject</b></span>
                         <a href="#DeleteProject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -461,8 +574,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/services/api.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/services/api.service.ts:49</a></div>
                 </td>
             </tr>
 
@@ -472,6 +585,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -515,10 +629,8 @@
                 <td class="col-md-4">
                     <a name="GetAllProjects"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            GetAllProjects
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>GetAllProjects</b></span>
                         <a href="#GetAllProjects"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -533,8 +645,86 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/services/api.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/services/api.service.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getManagerChartData"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>getManagerChartData</b></span>
+                        <a href="#getManagerChartData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getManagerChartData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/app/services/api.service.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getManagerTable"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>getManagerTable</b></span>
+                        <a href="#getManagerTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getManagerTable()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/app/services/api.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -556,10 +746,8 @@
                 <td class="col-md-4">
                     <a name="GetProjectByID"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            GetProjectByID
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>GetProjectByID</b></span>
                         <a href="#GetProjectByID"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -574,8 +762,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/services/api.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/services/api.service.ts:23</a></div>
                 </td>
             </tr>
 
@@ -585,6 +773,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -626,12 +815,436 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="GetTimesheetById"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>GetTimesheetById</b></span>
+                        <a href="#GetTimesheetById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetTimesheetById(timesheetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/services/api.service.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>timesheetId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetTimesheetList"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>GetTimesheetList</b></span>
+                        <a href="#GetTimesheetList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetTimesheetList(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/services/api.service.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetTimesheetListByStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>GetTimesheetListByStatus</b></span>
+                        <a href="#GetTimesheetListByStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetTimesheetListByStatus(timesheetStatus: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/services/api.service.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>timesheetStatus</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserById"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>getUserById</b></span>
+                        <a href="#getUserById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserById(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/app/services/api.service.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserChartDataTotalRegisteredHoursByDate"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>getUserChartDataTotalRegisteredHoursByDate</b></span>
+                        <a href="#getUserChartDataTotalRegisteredHoursByDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserChartDataTotalRegisteredHoursByDate(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">src/app/services/api.service.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserChartDataTotalRegisteredHoursPerProject"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>getUserChartDataTotalRegisteredHoursPerProject</b></span>
+                        <a href="#getUserChartDataTotalRegisteredHoursPerProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserChartDataTotalRegisteredHoursPerProject(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/services/api.service.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="RemoveColumn"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            RemoveColumn
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>RemoveColumn</b></span>
                         <a href="#RemoveColumn"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -646,8 +1259,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">src/app/services/api.service.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/services/api.service.ts:67</a></div>
                 </td>
             </tr>
 
@@ -657,6 +1270,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -712,10 +1326,8 @@
                 <td class="col-md-4">
                     <a name="RemoveTask"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            RemoveTask
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>RemoveTask</b></span>
                         <a href="#RemoveTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -730,8 +1342,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">src/app/services/api.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/services/api.service.ts:71</a></div>
                 </td>
             </tr>
 
@@ -741,6 +1353,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -808,10 +1421,8 @@
                 <td class="col-md-4">
                     <a name="UpdateColumn"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            UpdateColumn
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>UpdateColumn</b></span>
                         <a href="#UpdateColumn"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -819,15 +1430,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>UpdateColumn(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, columnID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, column: <a href="../classes/column.html">column</a>)</code>
+                    <code>UpdateColumn(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, columnID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, column: <a href="../classes/column.html" target="_self">column</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/app/services/api.service.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/services/api.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -837,6 +1448,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -904,10 +1516,8 @@
                 <td class="col-md-4">
                     <a name="UpdateProject"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            UpdateProject
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>UpdateProject</b></span>
                         <a href="#UpdateProject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -915,15 +1525,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>UpdateProject(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, project: <a href="../classes/Project.html">Project</a>)</code>
+                    <code>UpdateProject(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, project: <a href="../classes/Project.html" target="_self">Project</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/services/api.service.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/services/api.service.ts:53</a></div>
                 </td>
             </tr>
 
@@ -933,6 +1543,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -988,10 +1599,8 @@
                 <td class="col-md-4">
                     <a name="UpdateTask"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            UpdateTask
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>UpdateTask</b></span>
                         <a href="#UpdateTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -999,15 +1608,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>UpdateTask(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, columnID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, taskID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, task: <a href="../classes/task.html">task</a>)</code>
+                    <code>UpdateTask(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, columnID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, taskID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, task: <a href="../classes/task.html" target="_self">task</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/app/services/api.service.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/services/api.service.ts:63</a></div>
                 </td>
             </tr>
 
@@ -1017,6 +1626,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -1090,6 +1700,148 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UpdateTimeSheet"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>UpdateTimeSheet</b></span>
+                        <a href="#UpdateTimeSheet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>UpdateTimeSheet(timesheet: <a href="../classes/Timesheet.html" target="_self">Timesheet</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/services/api.service.ts:98</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>timesheet</td>
+                                    <td>
+                                                <code><a href="../classes/Timesheet.html" target="_self" >Timesheet</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UpdateTimeSheetDetails"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>UpdateTimeSheetDetails</b></span>
+                        <a href="#UpdateTimeSheetDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>UpdateTimeSheetDetails(timesheetDetails: TimesheetDetails[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/services/api.service.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>timesheetDetails</td>
+                                    <td>
+                                            <code>TimesheetDetails[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -1104,6 +1856,11 @@ import { map, catchError } from &#x27;rxjs/operators&#x27;;
 import { Project } from &#x27;../models/Project&#x27;;
 import { column } from &#x27;../models/Column&#x27;;
 import { task } from &#x27;../models/Task&#x27;;
+import { Timesheet } from &#x27;../models/timesheet&#x27;;
+import { TimesheetDetails } from &#x27;../models/timesheet-details&#x27;;
+import { User } from &#x27;../models/user&#x27;;
+import { ManagerTable } from &#x27;../models/manager-table&#x27;;
+import { ChartData } from &#x27;../models/chart-data&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -1164,6 +1921,67 @@ export class ApiService {
   public RemoveTask(projectId: number, columnID: number, taskID: number){
     return this.httpClient.delete(&#x60;${environment.apiUrl}/api/Projects/${projectId}/column/${columnID}/task/${taskID}&#x60;);
   }
+
+  public CreateTimesheet(timesheet: Timesheet) {
+    return this.httpClient.post(&#x60;${environment.apiUrl}/api/Timesheets&#x60;, timesheet);
+  }
+
+  public GetTimesheetList(userId: string){
+    return this.httpClient.get&lt;Timesheet[]&gt;(&#x60;${environment.apiUrl}/api/Timesheets/Users/${userId}&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
+
+  public GetTimesheetListByStatus(timesheetStatus: string){
+    return this.httpClient.get&lt;Timesheet[]&gt;(&#x60;${environment.apiUrl}/api/Timesheets/Manager/${timesheetStatus}&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
+  
+  
+  public GetTimesheetById(timesheetId: string){
+    return this.httpClient.get&lt;Timesheet&gt;(&#x60;${environment.apiUrl}/api/Timesheets/${timesheetId}&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
+
+  public UpdateTimeSheet(timesheet: Timesheet){
+    return this.httpClient.put(&#x60;${environment.apiUrl}/api/Timesheets/${timesheet.timesheetID}&#x60;, timesheet);
+  }
+
+  public UpdateTimeSheetDetails(timesheetDetails: TimesheetDetails[]){
+    return this.httpClient.post(&#x60;${environment.apiUrl}/api/Timesheets/Details&#x60;, timesheetDetails);
+  }
+
+  public getUserById(userId: number){
+    return this.httpClient.get&lt;User&gt;(&#x60;${environment.apiUrl}/Users/${userId}&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
+
+  public getManagerTable() {
+    return this.httpClient.get&lt;ManagerTable[]&gt;(&#x60;${environment.apiUrl}/api/Timesheets/Manager/Table&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
+
+  public getManagerChartData() {
+    return this.httpClient.get&lt;ChartData[]&gt;(&#x60;${environment.apiUrl}/api/Timesheets/Manager/Chart/Data&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
+
+  public getUserChartDataTotalRegisteredHoursByDate(userId: string) {
+    return this.httpClient.get&lt;ChartData[]&gt;(&#x60;${environment.apiUrl}/api/Timesheets/User/Chart/Data/${userId}&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
+
+  public getUserChartDataTotalRegisteredHoursPerProject(userId: string) {
+    return this.httpClient.get&lt;ChartData[]&gt;(&#x60;${environment.apiUrl}/api/Timesheets/User/Chart/Data/Project/${userId}&#x60;).pipe(map(response &#x3D;&gt; {
+      return response;
+    }));
+  }
 }
 </code></pre>
     </div>
@@ -1176,14 +1994,15 @@ export class ApiService {
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -1195,6 +2014,15 @@ export class ApiService {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
@@ -1204,9 +2032,9 @@ export class ApiService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

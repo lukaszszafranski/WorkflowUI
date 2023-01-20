@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -30,7 +31,61 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="workflowui">WorkflowUI</h1>
+<h1>WorkflowUI</h1>
+
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#about-the-project">About the Project</a><ul>
+<li><a href="#built-with">Built With</a></li>
+</ul>
+</li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project">About The Project</h2>
+<p>This project is frontend part of a bigger project: Kanban board with real-time chat. It was built with Angular 9.</p>
+<h3 id="built-with">Built With</h3>
+<ul>
+<li>Angular 9 </li>
+<li>SignalR</li>
+<li>Font Awesome</li>
+<li>ngx-spinner</li>
+<li>Tawk.to</li>
+<li>ngx-toastr</li>
+<li>rxjs </li>
+<li>core-js</li>
+<li>Angular Material Design (CDK)</li>
+<li>Azure App Service</li>
+<li>Compodoc</li>
+</ul>
+<!-- GETTING STARTED  -->
+<h2 id="getting-started">Getting Started</h2>
+<p>To get a local copy up and running follow these simple steps:</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>IDE</li>
+<li>Browser</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<h4 id="for-local">For Local</h4>
+<ol>
+<li>Clone the repo</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-sh">git clone https://github.com/lukaszszafranski/WorkflowUI.git</code></pre></div><!-- USAGE EXAMPLES -->
+<h2 id="usage">Usage</h2>
+<p>For usage examples please refer to the <a href="https://projektygrupowe.github.io/overview.html">Live Documentation</a></p>
+<h2 id="trello-board">Trello Board</h2>
+<p><a href="https://trello.com/b/urwhTkAJ/in%C5%BCynieria-oprogramowania">Trello</a></p>
+<h2 id="www">WWW</h2>
+<p><a href="https://workflowui.azurewebsites.net/login">https://workflowui.azurewebsites.net/login</a></p>
+<h2 id="documentation">Documentation</h2>
+<p><a href="https://docs.google.com/document/d/1tpDOvnk2pOgKiGyWv67dbtkNvh2Kq3ow-ja4Bn4SdpY/edit?pli=1#">https://docs.google.com/document/d/1tpDOvnk2pOgKiGyWv67dbtkNvh2Kq3ow-ja4Bn4SdpY/edit?pli=1#</a></p>
 
 
 
@@ -45,14 +100,16 @@
 
 
 
-                   
+
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -64,6 +121,15 @@
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
@@ -73,9 +139,9 @@
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

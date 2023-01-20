@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>ProjectsListComponent</li>
+  <li
+  >
+  ProjectsListComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
     <p class="comment">
         <h3>Implements</h3>
     </p>
@@ -76,7 +80,7 @@
 
 <section>
     <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
+    <table class="table table-sm table-hover metadata">
         <tbody>
 
 
@@ -130,7 +134,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#projectsArray">projectsArray</a>
+                                <a href="#currentUser" >currentUser</a>
+                            </li>
+                            <li>
+                                <a href="#defaultProject" >defaultProject</a>
+                            </li>
+                            <li>
+                                <a href="#projectForm" >projectForm</a>
+                            </li>
+                            <li>
+                                <a href="#projectsArray" >projectsArray</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
                             </li>
                         </ul>
                     </td>
@@ -145,7 +161,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#createProject" >createProject</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -165,12 +184,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(apiService: <a href="../injectables/ApiService.html">ApiService</a>, toastr: ToastrService, spinner: NgxSpinnerService)</code>
+<code>constructor(apiService: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, toastr: ToastrService, spinner: NgxSpinnerService, formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/projects-list/projects-list.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/projects-list/projects-list.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -223,6 +242,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -245,11 +276,46 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createProject"></a>
+                    <span class="name">
+                        <span ><b>createProject</b></span>
+                        <a href="#createProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createProject()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/projects-list/projects-list.component.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
+                        <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -263,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/projects-list/projects-list.component.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/projects-list/projects-list.component.ts:27</a></div>
                 </td>
             </tr>
 
@@ -283,41 +349,144 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentUser"></a>
+                    <span class="name">
+                        <span ><b>currentUser</b></span>
+                        <a href="#currentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="projectsArray"></a>
-                        <span class="name">
-                            <b>
-                            projectsArray</b>
-                            <a href="#projectsArray"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/Project.html" target="_self" >Project[]</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/projects-list/projects-list.component.ts:17</a></div>
                         </td>
                     </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultProject"></a>
+                    <span class="name">
+                        <span ><b>defaultProject</b></span>
+                        <a href="#defaultProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Project.html" target="_self" >Project</a></code>
+
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/projects-list/projects-list.component.ts:20</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/projects-list/projects-list.component.ts:16</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projectForm"></a>
+                    <span class="name">
+                        <span ><b>projectForm</b></span>
+                        <a href="#projectForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/projects-list/projects-list.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projectsArray"></a>
+                    <span class="name">
+                        <span ><b>projectsArray</b></span>
+                        <a href="#projectsArray"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Project.html" target="_self" >Project[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/projects-list/projects-list.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/projects-list/projects-list.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -329,6 +498,9 @@ import { ApiService } from &#x27;../services/api.service&#x27;;
 import { NgxSpinnerService } from &#x27;ngx-spinner&#x27;;
 import { ToastrService } from &#x27;ngx-toastr&#x27;;
 import { Project } from &#x27;../models/Project&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { User } from &#x27;../models/user&#x27;;
+import { first } from &#x27;rxjs/operators&#x27;;
 
 @Component({
   selector: &#x27;app-projects-list&#x27;,
@@ -337,7 +509,12 @@ import { Project } from &#x27;../models/Project&#x27;;
 })
 export class ProjectsListComponent implements OnInit {
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
+  currentUser: User;
+  projectForm: FormGroup;
+  title: string;
+  defaultProject: Project;
+
+  constructor(private apiService: ApiService, private toastr: ToastrService, private spinner: NgxSpinnerService, private formBuilder: FormBuilder) { }
 
   projectsArray: Project[] &#x3D; [];
 
@@ -354,6 +531,39 @@ export class ProjectsListComponent implements OnInit {
         this.spinner.hide();
       }
     );
+
+    this.projectForm &#x3D; this.formBuilder.group({
+      title: [&#x27;&#x27;, Validators.required],
+    });
+  }
+
+  createProject() {
+    this.spinner.show();
+
+    this.projectForm &#x3D; this.formBuilder.group({
+      title: [this.title, Validators.required],
+    });
+
+    if (this.projectForm.invalid) {
+      this.toastr.error(&#x27;Form is invalid!&#x27;);
+      this.spinner.hide();
+    }
+    else {
+      this.apiService.CreateProject(this.projectForm.value)
+            .pipe(first())
+            .subscribe(
+                data &#x3D;&gt; {
+                  this.toastr.success(&#x27;You created &#x27; + this.title + &#x27; Project!&#x27;);
+                  this.spinner.hide();
+                  let closeButton &#x3D; document.getElementById(&#x27;closeButton&#x27;);
+                  closeButton.click();
+                  this.ngOnInit()
+                },
+                error &#x3D;&gt; {
+                  this.toastr.warning(error);
+                  this.spinner.hide();
+                });
+    }
   }
 
 }
@@ -367,21 +577,47 @@ export class ProjectsListComponent implements OnInit {
             &lt;h1 class&#x3D;&quot;page-header-title&quot;&gt;
                 &lt;div class&#x3D;&quot;page-header-icon&quot;&gt;&lt;i class&#x3D;&quot;fas fa-tasks&quot;&gt;&lt;/i&gt;&lt;/div&gt;
                 &lt;span&gt;Projects&lt;/span&gt;
+                &lt;button class&#x3D;&quot;btn btn-green ml-5&quot; style&#x3D;&quot;text-align: right; justify-content: right;&quot; type&#x3D;&quot;button&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#exampleModalCenter&quot;&gt;&lt;i class&#x3D;&quot;fas fa-plus-circle&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp; Add project&lt;/button&gt;
             &lt;/h1&gt;
             &lt;div class&#x3D;&quot;page-header-subtitle&quot;&gt;All available projects.&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;ngx-spinner bdOpacity&#x3D;0.5 bdColor&#x3D;&quot;rgba(51,51,51,0.85)&quot; size&#x3D;&quot;medium&quot; color&#x3D;&quot;#fff&quot; type&#x3D;&quot;line-scale&quot; [fullScreen]&#x3D;&quot;true&quot;&gt;
-    &lt;p style&#x3D;&quot;color: white&quot;&gt; Updating user... &lt;/p&gt;
+    &lt;p style&#x3D;&quot;color: white&quot;&gt; Openning connection to our database... &lt;/p&gt;
 &lt;/ngx-spinner&gt;
 &lt;div class&#x3D;&quot;container-fluid mt-n10&quot;&gt;
+    &lt;!-- Modal --&gt;
+    &lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;exampleModalCenter&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;exampleModalCenterTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered&quot; role&#x3D;&quot;document&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+                &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+                    &lt;h5 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;exampleModalCenterTitle&quot;&gt;Add your project&lt;/h5&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+                    &lt;form [formGroup]&#x3D;&quot;projectForm&quot; (ngSubmit)&#x3D;&quot;createProject()&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;exampleFormControlInput1&quot;&gt;Project name&lt;/label&gt;
+                            &lt;input class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&#x27;title&#x27; type&#x3D;&quot;text&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; required&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                            &lt;button class&#x3D;&quot;btn btn-secondary&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;closeButton&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;Close&lt;/button&gt;
+                            &lt;button class&#x3D;&quot;btn btn-primary&quot; type&#x3D;&quot;submit&quot;&gt;Save changes&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
     &lt;div class&#x3D;&quot;row&quot;&gt;
         &lt;div class&#x3D;&quot;col-md-3&quot; *ngFor&#x3D;&quot;let project of projectsArray&quot;&gt;
             &lt;div class&#x3D;&quot;card-deck&quot;&gt;
                 &lt;div class&#x3D;&quot;card mb-4&quot; &gt;
                     &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                            &lt;h5 class&#x3D;&quot;card-title text-primary&quot;&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, project.projectID]&quot;&gt;{{ project.title }}&lt;/a&gt;&lt;/h5&gt;
+                            &lt;h5 class&#x3D;&quot;card-title text-primary&quot;&gt;
+                                &lt;!-- &lt;a [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, project.projectID]&quot;&gt;{{ project.title }}&lt;/a&gt; --&gt;
+                                &lt;a&gt;{{ project.title }}&lt;/a&gt;
+                            &lt;/h5&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
@@ -425,8 +661,8 @@ export class ProjectsListComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="page-header pb-10 page-header-dark bg-primary">    <div class="container-fluid">        <div class="page-header-content">            <h1 class="page-header-title">                <div class="page-header-icon"><i class="fas fa-tasks"></i></div>                <span>Projects</span>            </h1>            <div class="page-header-subtitle">All available projects.</div>        </div>    </div></div><ngx-spinner bdOpacity=0.5 bdColor="rgba(51,51,51,0.85)" size="medium" color="#fff" type="line-scale" [fullScreen]="true">    <p style="color: white"> Updating user... </p></ngx-spinner><div class="container-fluid mt-n10">    <div class="row">        <div class="col-md-3" *ngFor="let project of projectsArray">            <div class="card-deck">                <div class="card mb-4" >                    <div class="card-body">                            <h5 class="card-title text-primary"><a [routerLink]="[\'/project\', project.projectID]">{{ project.title }}</a></h5>                    </div>                </div>            </div>        </div>      </div></div></div>'
-    var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'LoginComponent', 'selector': ''},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OrganizationAddMembersComponent', 'selector': 'app-organization-add-members'},{'name': 'OrganizationComponent', 'selector': 'app-organization'},{'name': 'OrganizationJoinComponent', 'selector': 'app-organization-join'},{'name': 'OrganizationRegistrationComponent', 'selector': 'app-organization-registration'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectsListComponent', 'selector': 'app-projects-list'},{'name': 'RegisterComponent', 'selector': ''},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'UnauthorizedComponent', 'selector': 'app-unauthorized'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+        var COMPONENT_TEMPLATE = '<div><div class="page-header pb-10 page-header-dark bg-primary">    <div class="container-fluid">        <div class="page-header-content">            <h1 class="page-header-title">                <div class="page-header-icon"><i class="fas fa-tasks"></i></div>                <span>Projects</span>                <button class="btn btn-green ml-5" style="text-align: right; justify-content: right;" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp; Add project</button>            </h1>            <div class="page-header-subtitle">All available projects.</div>        </div>    </div></div><ngx-spinner bdOpacity=0.5 bdColor="rgba(51,51,51,0.85)" size="medium" color="#fff" type="line-scale" [fullScreen]="true">    <p style="color: white"> Openning connection to our database... </p></ngx-spinner><div class="container-fluid mt-n10">    <!-- Modal -->    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">        <div class="modal-dialog modal-dialog-centered" role="document">            <div class="modal-content">                <div class="modal-header">                    <h5 class="modal-title" id="exampleModalCenterTitle">Add your project</h5>                </div>                <div class="modal-body">                    <form [formGroup]="projectForm" (ngSubmit)="createProject()">                        <div class="form-group">                            <label for="exampleFormControlInput1">Project name</label>                            <input class="form-control" [(ngModel)]=\'title\' type="text" [ngModelOptions]="{standalone: true}" required>                        </div>                        <div class="modal-footer">                            <button class="btn btn-secondary" type="button" id="closeButton" data-dismiss="modal">Close</button>                            <button class="btn btn-primary" type="submit">Save changes</button>                        </div>                    </form>                </div>            </div>        </div>    </div>    <div class="row">        <div class="col-md-3" *ngFor="let project of projectsArray">            <div class="card-deck">                <div class="card mb-4" >                    <div class="card-body">                            <h5 class="card-title text-primary">                                <!-- <a [routerLink]="[\'/project\', project.projectID]">{{ project.title }}</a> -->                                <a>{{ project.title }}</a>                            </h5>                    </div>                </div>            </div>        </div>      </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'LoginComponent', 'selector': ''},{'name': 'ManageTimesheetDetailsComponent', 'selector': 'app-manage-timesheet-details'},{'name': 'ManageTimesheetsComponent', 'selector': 'app-manage-timesheets'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OrganizationAddMembersComponent', 'selector': 'app-organization-add-members'},{'name': 'OrganizationComponent', 'selector': 'app-organization'},{'name': 'OrganizationJoinComponent', 'selector': 'app-organization-join'},{'name': 'OrganizationRegistrationComponent', 'selector': 'app-organization-registration'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectsListComponent', 'selector': 'app-projects-list'},{'name': 'RegisterComponent', 'selector': ''},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TimesheetDetailsComponent', 'selector': 'app-timesheet-details'},{'name': 'TimesheetsListComponent', 'selector': 'app-timesheets-list'},{'name': 'UnauthorizedComponent', 'selector': 'app-unauthorized'},{'name': 'UserDashboardComponent', 'selector': 'app-dashboard'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProjectsListComponent'};
 </script>
@@ -441,14 +677,16 @@ export class ProjectsListComponent implements OnInit {
 
 
 
-                   
+
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -460,6 +698,15 @@ export class ProjectsListComponent implements OnInit {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
@@ -469,9 +716,9 @@ export class ProjectsListComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

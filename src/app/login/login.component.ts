@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/user-dashboard']);
         }
     }
 
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         // get return url from route parameters or default to '/'
         // tslint:disable-next-line: no-string-literal
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/timesheets-list';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/user-dashboard';
     }
 
     ngOnDestroy() {

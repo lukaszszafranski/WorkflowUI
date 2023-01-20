@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>SupportComponent</li>
+  <li
+  >
+  SupportComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
     <p class="comment">
         <h3>Implements</h3>
     </p>
@@ -76,7 +80,7 @@
 
 <section>
     <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
+    <table class="table table-sm table-hover metadata">
         <tbody>
 
 
@@ -130,7 +134,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#tawkId">tawkId</a>
+                                <a href="#tawkId" >tawkId</a>
                             </li>
                         </ul>
                     </td>
@@ -145,7 +149,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -193,9 +197,7 @@
                 <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
+                        <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -229,41 +231,40 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tawkId"></a>
+                    <span class="name">
+                        <span ><b>tawkId</b></span>
+                        <a href="#tawkId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="tawkId"></a>
-                        <span class="name">
-                            <b>
-                            tawkId</b>
-                            <a href="#tawkId"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;5ec31fd38ee2956d73a2647d&#x27;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/support/support.component.ts:9</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;5ec31fd38ee2956d73a2647d&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/support/support.component.ts:9</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -480,7 +481,7 @@ export class SupportComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="page-header pb-10 page-header-dark bg-primary">    <div class="container-fluid">        <div class="page-header-content">            <h1 class="page-header-title">                <div class="page-header-icon"><i class="far fa-life-ring"></i></div>                <span>Support</span>            </h1>            <div class="page-header-subtitle">Here are some answers to some commonly asked questions</div>        </div>    </div></div><section class="bg-light py-10">    <div class="container">        <div class="d-flex align-items-center mb-5">            <div class="icon-stack icon-stack-lg bg-primary text-white"><i class="fas fa-user"></i></div>            <div class="ml-3">                <h2 class="mb-0">Account</h2>            </div>        </div>        <div class="accordion accordion-faq mb-5" id="authAccordion">            <div class="card border-bottom">                <div class="card-body">                    <div class="accordion-faq-title">                        <div class="mr-2">                            <h4 class="mb-0">Authentication issues</h4>                            <p class="card-text text-gray-500">Issues related to logging in, registering a new account, and setting your account password</p>                        </div>                        <div class="badge badge-success-soft badge-pill text-success">3 Answers</div>                    </div>                </div>            </div>            <div class="card accordion-faq-item">                <a class="card-header" id="authHeadingOne" data-toggle="collapse" data-target="#authCollapseOne" aria-expanded="true" aria-controls="authCollapseOne" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">I can\'t remember my account email address.<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseOne" aria-labelledby="authHeadingOne" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>            <div class="card accordion-faq-item">                <a class="card-header collapsed" id="authHeadingTwo" data-toggle="collapse" data-target="#authCollapseTwo" aria-expanded="true" aria-controls="authCollapseTwo" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">Why doesn\'t my password work?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseTwo" aria-labelledby="authHeadingTwo" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>            <div class="card accordion-faq-item">                <a class="card-header collapsed" id="authHeadingThree" data-toggle="collapse" data-target="#authCollapseThree" aria-expanded="true" aria-controls="authCollapseThree" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">Why do I keep getting logged out of my account?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseThree" aria-labelledby="authHeadingThree" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>        </div>        <div class="d-flex align-items-center mb-5">            <div class="icon-stack icon-stack-lg bg-green text-white"><i class="fas fa-coins"></i></div>            <div class="ml-3">                <h2 class="mb-0">Billing</h2>            </div>        </div>        <div class="accordion accordion-faq mb-5" id="authAccordion">            <div class="card border-bottom">                <div class="card-body">                    <div class="accordion-faq-title">                        <div class="mr-2">                            <h4 class="mb-0">Billing questions</h4>                            <p class="card-text text-gray-500">Questions related to billing, monthly costs, etc.</p>                        </div>                        <div class="badge badge-success-soft badge-pill text-success">3 Answers</div>                    </div>                </div>            </div>            <div class="card accordion-faq-item">                <a class="card-header" id="authHeadingFourth" data-toggle="collapse" data-target="#authCollapseFourth" aria-expanded="true" aria-controls="authCollapseFourth" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">Why is it free?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseFourth" aria-labelledby="authCollapseFourth" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>            <div class="card accordion-faq-item">                <a class="card-header collapsed" id="authHeadingFifth" data-toggle="collapse" data-target="#authCollapseFifth" aria-expanded="true" aria-controls="authCollapseFifth" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">What features I gain from upgrading my billing plan?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseFifth" aria-labelledby="authCollapseFifth" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>            <div class="card accordion-faq-item">                <a class="card-header collapsed" id="authHeadingSix" data-toggle="collapse" data-target="#authCollapseSix" aria-expanded="true" aria-controls="authCollapseSix" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">What do you have in store for my company?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseSix" aria-labelledby="authCollapseSix" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>        </div>        <div class="d-flex align-items-center mb-5">            <div class="icon-stack icon-stack-lg bg-purple text-white"><i class="fas fa-code"></i></div>            <div class="ml-3">                <h2 class="mb-0">Integrations</h2>            </div>        </div>        <div class="accordion accordion-faq mb-5" id="authAccordion">            <div class="card border-bottom">                <div class="card-body">                    <div class="accordion-faq-title">                        <div class="mr-2">                            <h4 class="mb-0">Integration questions</h4>                            <p class="card-text text-gray-500">Questions related to 3rd party app integration into our app.</p>                        </div>                        <div class="badge badge-success-soft badge-pill text-success">3 Answers</div>                    </div>                </div>            </div>            <div class="card accordion-faq-item">                <a class="card-header" id="authHeadingSeventh" data-toggle="collapse" data-target="#authCollapseSeventh" aria-expanded="true" aria-controls="authCollapseSeventh" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">Do you have "X" integration currently available?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseSeventh" aria-labelledby="authCollapseSeventh" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>            <div class="card accordion-faq-item">                <a class="card-header collapsed" id="authHeadingEight" data-toggle="collapse" data-target="#authCollapseEight" aria-expanded="true" aria-controls="authCollapseEight" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">When do you plan to implement "Y" Integration?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseEight" aria-labelledby="authCollapseEight" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>            <div class="card accordion-faq-item">                <a class="card-header collapsed" id="authHeadingNinth" data-toggle="collapse" data-target="#authCollapseNinth" aria-expanded="true" aria-controls="authCollapseNinth" href="javascript:void(0);"                    ><div class="accordion-faq-item-heading">How can we make integration, with our corporate systems?<i class="accordion-faq-item-heading-arrow" data-feather="chevron-down"></i></div                ></a>                <div class="collapse" id="authCollapseNinth" aria-labelledby="authCollapseNinth" data-parent="#authAccordion"><div class="card-body border-bottom">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.</div></div>            </div>        </div>        <div class="d-flex align-items-center mb-5">            <div class="icon-stack icon-stack-lg bg-info text-white"><i class="fas fa-question-circle"></i></div>            <div class="ml-3">                <h2 class="mb-0">Any more questions?</h2>            </div>        </div>        <div class="accordion accordion-faq mb-5" id="authAccordion">            <div class="card border-bottom">                <div class="card-body">                    <div class="accordion-faq-title">                        <div class="mr-2">                            <h4 class="mb-0">Click on chat icon to open chat with our agent.</h4>                        </div>                    </div>                </div>            </div>        </div>    </div>                                <a id="bottom-right-corner" href="javascript:void(Tawk_API.toggle())">     <button class="btn btn-outline-blue btn-chat" type="button">        <i class="fas fa-comment-dots"></i>    </button> </a></div>'
-    var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'LoginComponent', 'selector': ''},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OrganizationAddMembersComponent', 'selector': 'app-organization-add-members'},{'name': 'OrganizationComponent', 'selector': 'app-organization'},{'name': 'OrganizationJoinComponent', 'selector': 'app-organization-join'},{'name': 'OrganizationRegistrationComponent', 'selector': 'app-organization-registration'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectsListComponent', 'selector': 'app-projects-list'},{'name': 'RegisterComponent', 'selector': ''},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'UnauthorizedComponent', 'selector': 'app-unauthorized'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'LoginComponent', 'selector': ''},{'name': 'ManageTimesheetDetailsComponent', 'selector': 'app-manage-timesheet-details'},{'name': 'ManageTimesheetsComponent', 'selector': 'app-manage-timesheets'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OrganizationAddMembersComponent', 'selector': 'app-organization-add-members'},{'name': 'OrganizationComponent', 'selector': 'app-organization'},{'name': 'OrganizationJoinComponent', 'selector': 'app-organization-join'},{'name': 'OrganizationRegistrationComponent', 'selector': 'app-organization-registration'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectsListComponent', 'selector': 'app-projects-list'},{'name': 'RegisterComponent', 'selector': ''},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TimesheetDetailsComponent', 'selector': 'app-timesheet-details'},{'name': 'TimesheetsListComponent', 'selector': 'app-timesheets-list'},{'name': 'UnauthorizedComponent', 'selector': 'app-unauthorized'},{'name': 'UserDashboardComponent', 'selector': 'app-dashboard'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SupportComponent'};
 </script>
@@ -495,14 +496,16 @@ export class SupportComponent implements OnInit {
 
 
 
-                   
+
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -514,6 +517,15 @@ export class SupportComponent implements OnInit {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
@@ -523,9 +535,9 @@ export class SupportComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
