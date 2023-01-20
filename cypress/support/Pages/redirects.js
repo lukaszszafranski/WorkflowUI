@@ -12,7 +12,7 @@ redirectToReviewTimesheetsPage(){
     cy.get('span').should('contain.text', 'Timesheets'); 
 }
 redirectToChatPage(){
-    cy.get('#accordionSidenav > [routerlink="/chat"]').click();
+    cy.get('[routerlink="/chat"]').click();
     cy.get('span').should('contain.text', 'Chat'); 
 }
 }

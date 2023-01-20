@@ -9,7 +9,7 @@ describe('Timesheets Page', () => {
         const loginPage = new LoginPage();
         const redirects = new Redirects();
 
-        var username = 'ŁUKASZ.TOPAJAC';
+        var username = 'AutomationTests';
         var password = '123456';
     
         loginPage.logInUsingCredentials(username, password);

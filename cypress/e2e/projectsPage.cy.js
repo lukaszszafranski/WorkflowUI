@@ -7,12 +7,13 @@ describe('Projects Page', () => {
         cy.visit('https://portale-korporacyjne.azurewebsites.net/login')
         
         const loginPage = new LoginPage();
-        var username = 'ŁUKASZ.TOPAJAC';
+        const redirects = new Redirects();
+        var username = 'AutomationTests';
         var password = '123456';
     
         loginPage.logInUsingCredentials(username, password);
 
-        cy.get('span').should('contain.text', 'Dashboard'); 
+        redirects.redirectToProjectsPage();
     })
 
     it('User should be able to add new project', () => {
@@ -67,12 +68,11 @@ describe('Projects Page', () => {
 
     });
 
-    it.only('User should be able to delete  project', () => {
+    it('User should be able to delete  project', () => {
         const projectsPage = new ProjectsPage();
         const redirects = new Redirects();
 
         const fakeProjectName = projectsPage.generateRandomName();
-        const editedFakeProjectName = fakeProjectName+'edited';
         projectsPage.createNewProjectWithRandomName(fakeProjectName);
 
         redirects.redirectToProjectsPage();

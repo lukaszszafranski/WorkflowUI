@@ -16,14 +16,14 @@ describe('Login page', () => {
     cy.get('.card-body.text-center').should('contain.text', "Sign In")
   })
 
-  it.skip('After entering login page user can see the login form', () => {
+  it('After entering login page user can see the login form', () => {
     cy.get('form.ng-untouched').should('be.visible');
   })
 
-  it.only('User should be able to log in using correct credentials', () => {
+  it('User should be able to log in using correct credentials', () => {
     const loginPage = new LoginPage();
 
-    var username = 'ŁUKASZ.TOPAJAC';
+    var username = 'AutomationTests';
     var password = '123456';
 
     loginPage.logInUsingCredentials(username, password);
